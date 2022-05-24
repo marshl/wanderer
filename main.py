@@ -33,14 +33,14 @@ def render_thingy(map_type, route_name):
         draw = ImageDraw(im)
         # draw.line((0, 0) + im.size, fill=128)
         # draw.line((0, im.size[1], im.size[0], 0), fill=128)
-        for movement in movements:
+        for idx, movement in enumerate(movements):
             draw.line(
                 (movement.start.x, movement.start.y, movement.end.x, movement.end.y),
-                fill=(255,0,0),
+                fill=(255, 0, 0),
             )
 
-        output_file = os.path.join(output_directory, "output.jpeg")
-        im.save(output_file, "jpeg")
+            output_file = os.path.join(output_directory, f"output_{idx}.jpeg")
+            im.save(output_file, "jpeg")
 
 
 @dataclasses.dataclass
