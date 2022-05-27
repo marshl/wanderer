@@ -1,0 +1,21 @@
+{
+  "name": "Fallout: New Vegas",
+  "default_map": "mojave",
+  "movement_types": [
+    {
+      "name": "walk",
+      "pixels_per_second": 10,
+      "colour": "#ff0000ff"
+    },
+    {
+      "name": "boat",
+      "pixels_per_second": 15,
+      "colour": "#0000ffff"
+    },
+    {
+      "name": "sewer",
+      "pixels_per_second": 15,
+      "colour": "#00ff00ff"
+    }
+  ]
+}

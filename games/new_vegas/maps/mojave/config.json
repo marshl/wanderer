@@ -1,0 +1,32 @@
+{
+  "name": "Mojave",
+  "image_file": "MojaveMapBW.webp",
+  "speed_multiplier": 1.0,
+  "locations": [
+    {
+      "name": "Goodsprings",
+      "x": 339,
+      "y": 577
+    },
+    {
+      "name": "Goodsprings Cave",
+      "x": 379,
+      "y": 604
+    },
+    {
+      "name": "Goodsprings Source",
+      "x": 366,
+      "y": 643
+    },
+    {
+      "name": "Goodsprings Cemetery",
+      "x": 368,
+      "y": 544
+    },
+    {
+      "name": "Jean's Skydiving",
+      "x": 398,
+      "y": 641
+    }
+  ]
+}
