@@ -2,13 +2,17 @@ import os
 import re
 from typing import List, Dict, Tuple
 
+from PIL import Image
+from PIL.ImageDraw import ImageDraw
+
 from wanderer.position2d import Position2D
 
 
 class MapMarker:
-    def __init__(self, name: str, position: Position2D):
+    def __init__(self, name: str, position: Position2D, game_map: "GameMap"):
         self.name = name
         self.position = position
+        self.game_map = game_map
 
     def __str__(self):
         return self.name
@@ -91,6 +95,7 @@ class Game:
                     start=last_location, end=next_location, movement_type=movement_type
                 )
             )
+            last_location = next_location
         return movements
 
     def get_movement_type(self, movement_type_name: str) -> MovementType:
@@ -125,6 +130,28 @@ class Game:
             filename for filename in os.listdir(routes_dir) if filename.endswith(".txt")
         ]
 
+    def render_route(self, route_name: str, output_directory: str):
+        movements = self.parse_route_file(route_name)
+        for idx, movement in enumerate(movements):
+            assert movement.start.game_map == movement.end.game_map
+            with Image.open(movement.start.game_map.get_image_path()) as im:
+                draw = ImageDraw(im)
+                print(movement)
+                draw.line(
+                    (
+                        movement.start.position.x,
+                        movement.start.position.y,
+                        movement.end.position.x,
+                        movement.end.position.y,
+                    ),
+                    fill=(255, 0, 0),
+                )
+
+                output_file = os.path.join(output_directory, f"output_{idx}.jpeg")
+                im.save(output_file, "jpeg")
+                # draw.line((0, 0) + im.size, fill=128)
+                # draw.line((0, im.size[1], im.size[0], 0), fill=128)
+
 
 class GameMap:
     def __init__(self, game: Game, name: str, image_file: str, speed_multiplier: float):
@@ -145,3 +172,6 @@ class GameMap:
 
     def find_location_by_name(self, location_name: str) -> "MapMarker":
         return self.location_map.get(location_name)
+
+    def get_image_path(self) -> str:
+        return os.path.join(self.game.path, self.image_file)

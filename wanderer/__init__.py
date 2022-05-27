@@ -1,59 +1,9 @@
 import json
-import json
 import os
-import re
-from typing import List, Tuple
-
-from PIL import Image
-from PIL.ImageDraw import ImageDraw
+from typing import List
 
 from wanderer.game import Game, MovementType, GameMap, MapMarker
 from wanderer.position2d import Position2D
-
-
-def render_thingy(map_type, route_name):
-    map_directory = os.path.join("maps", map_type)
-    if not os.path.exists(map_directory):
-        raise ValueError(f"Cannot find map {map_directory}")
-
-    map_file = os.path.join(map_directory, "MojaveMapBW.png")
-    if not os.path.exists(map_directory):
-        raise ValueError(f"Cannot find map {map_file}")
-
-    route_file = os.path.join(map_directory, "routes", f"{route_name}.txt")
-    if not os.path.exists(route_file):
-        raise ValueError(f"Cannot find route {route_file}")
-
-    output_directory = os.path.join(map_directory, "output")
-    if not os.path.isdir(output_directory):
-        raise ValueError(f"Cannot find output directory {output_directory}")
-
-    location_file = os.path.join(map_directory, "locations.txt")
-    locations = parse_location_file(location_file)
-
-    movements = parse_route_file(route_file, locations)
-
-    with Image.open(map_file) as im:
-        draw = ImageDraw(im)
-        # draw.line((0, 0) + im.size, fill=128)
-        # draw.line((0, im.size[1], im.size[0], 0), fill=128)
-        for idx, movement in enumerate(movements):
-            draw.line(
-                (movement.start.x, movement.start.y, movement.end.x, movement.end.y),
-                fill=(255, 0, 0),
-            )
-
-            output_file = os.path.join(output_directory, f"output_{idx}.jpeg")
-            im.save(output_file, "jpeg")
-
-
-# def parse_location(location_str: str):
-#     match = re.match("^(?P<name>.+?) (?P<x>[0-9]+)x +(?P<y>[0-9]+)y *$", location_str)
-#     x = int(match.group("x"))
-#     y = int(match.group("y"))
-#     name = match.group("name")
-#     return Location(x=x, y=y, name=name)
-
 
 GAMES_DIRECTORY = "games"
 
@@ -130,6 +80,7 @@ def parse_game(game_name: str) -> Game:
 def parse_location(location_config: dict, game_map: GameMap) -> MapMarker:
     return MapMarker(
         name=location_config["name"],
+        game_map=game_map,
         position=Position2D(x=location_config["x"], y=location_config["y"]),
     )
 
