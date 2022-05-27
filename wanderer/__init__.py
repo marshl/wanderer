@@ -47,60 +47,6 @@ def render_thingy(map_type, route_name):
             im.save(output_file, "jpeg")
 
 
-# def parse_location_file(location_path: str) -> Dict[str, Location]:
-#     if not os.path.isfile(location_path):
-#         raise ValueError(f'Cannot find location file "{location_path}"')
-#
-#     locations: Dict[str, Location] = {}
-#     with open(location_path, "r") as location_file:
-#         for line in location_file.readlines():
-#             line = line.strip()
-#             if not line:
-#                 continue
-#             location = parse_location(line)
-#             if location.name in locations:
-#                 raise ValueError(f"Location {location.name} already in locations list")
-#             locations[location.name] = location
-#     return locations
-
-#
-# def parse_route_file(filename: str, locations: Dict[str, Location]):
-#     if not os.path.isfile(filename):
-#         raise ValueError(f'Cannot find route file "{filename}"')
-#     with open(filename, "r") as route_file:
-#         lines = route_file.readlines()
-#
-#     start_match = re.match("^start in (?P<location>.+)$", lines[0].strip())
-#     start_location = locations.get(start_match.group("location"))
-#     if not start_location:
-#         raise ValueError(
-#             f"Unknown starting location \"{start_match.group('location')}\""
-#         )
-#
-#     movements: List[Movement] = []
-#     last_location = start_location
-#     for line in lines[1:]:
-#         line = line.strip()
-#         if not line:
-#             continue
-#         movement, location = parse_route_str(line)
-#         if location not in locations:
-#             raise ValueError(f"Unknown location {location}")
-#         movements.append(
-#             Movement(
-#                 start=last_location, end=locations[location], movement_type=movement
-#             )
-#         )
-#     return movements
-
-
-def parse_route_str(route_str: str) -> Tuple[str, str]:
-    match = re.match("^(?P<movement>.+?) to (?P<location>.+?)$", route_str)
-    if not match:
-        raise ValueError(f'Could not match line to route: "{route_str}"')
-    return match.group("movement"), match.group("location")
-
-
 # def parse_location(location_str: str):
 #     match = re.match("^(?P<name>.+?) (?P<x>[0-9]+)x +(?P<y>[0-9]+)y *$", location_str)
 #     x = int(match.group("x"))
@@ -144,7 +90,7 @@ def parse_game(game_name: str) -> Game:
     config_filename = os.path.join(game_folder, "config.json")
     with open(config_filename, "r", encoding="utf8") as file:
         game_config = json.load(file)
-    game = Game(name=game_config["name"], default_map=game_config["default_map"])
+    game = Game(path=game_folder, name=game_config["name"], default_map=game_config["default_map"])
 
     movement_types = [
         MovementType(
@@ -174,7 +120,7 @@ def parse_game(game_name: str) -> Game:
         raise ValueError(f"Map directory {root_map_directory} has no subfolders in it")
 
     # for map_directory in child_map_directories:
-    game.maps = [
+    game.game_maps = [
         parse_game_map(map_directory, game) for map_directory in child_map_directories
     ]
 
@@ -184,7 +130,6 @@ def parse_game(game_name: str) -> Game:
 def parse_location(location_config: dict, game_map: GameMap) -> MapMarker:
     return MapMarker(
         name=location_config["name"],
-        game_map=game_map,
         position=Position2D(x=location_config["x"], y=location_config["y"]),
     )
 
@@ -204,9 +149,7 @@ def parse_game_map(map_directory: str, game: Game):
         image_file=os.path.join(map_directory, map_config["image_file"]),
         speed_multiplier=map_config["speed_multiplier"],
     )
-    game_map.locations = [
-        parse_location(location_config=location_config, game_map=game_map)
-        for location_config in map_config["locations"]
-    ]
+    for location_config in map_config["locations"]:
+        location = parse_location(location_config=location_config, game_map=game_map)
+        game_map.add_location(location)
     return game_map
-
