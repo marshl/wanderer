@@ -11,6 +11,7 @@ class Position2D:
     x: float  # pylint: disable=invalid-name
     y: float  # pylint: disable=invalid-name
 
+
     def __hash__(self):
         return hash((self.x, self.y))
 
@@ -31,6 +32,9 @@ class Position2D:
         :return: A new vector of the two combined
         """
         return Position2D(x=self.x + other.x, y=self.y + other.y)
+
+    def __mul__(self, other: float) -> "Position2D":
+        return Position2D(x=self.x * other, y=self.y * other)
 
     def __truediv__(self, other: float) -> "Position2D":
         """
@@ -68,6 +72,9 @@ class Position2D:
         :return: The magnitude of this vector
         """
         return math.sqrt(self.x ** 2 + self.y ** 2)
+
+    def unit(self) -> "Position2D":
+        return self / self.magnitude()
 
     def angle_between(self, other: "Position2D") -> float:
         """

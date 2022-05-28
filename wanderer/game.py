@@ -1,11 +1,40 @@
+import math
 import os
 import re
-from typing import List, Dict, Tuple
+from typing import Any, List, Dict, Tuple
 
 from PIL import Image
 from PIL.ImageDraw import ImageDraw
 
 from wanderer.position2d import Position2D
+
+
+def lerp(start: Any, end: Any, delta: float) -> Any:
+    assert 0 <= delta <= 1.0
+
+    return start + (end - start) * delta
+
+
+def points_between(
+    start: Position2D, end: Position2D, movement_speed: float
+) -> List[Position2D]:
+    assert movement_speed > 0
+    if start == end:
+        return [start]
+    distance = (end - start).magnitude()
+
+    # 0, 20
+    # 5
+    # distance / speed
+    moves = math.ceil(distance / movement_speed)
+
+    # points = [lerp(start, end, distance / moves * move) for move in range(moves)]
+    points = [start + (end - start).unit() * i * movement_speed for i in range(moves)]
+    # points = list(range(start, end, (end-start).unit()))
+    # points = [start + (end - start).unit() * movement_speed * i for ]
+    # if points[-1] != end:
+    #     points.append(end)
+    return points
 
 
 class MapMarker:
@@ -132,25 +161,66 @@ class Game:
 
     def render_route(self, route_name: str, output_directory: str):
         movements = self.parse_route_file(route_name)
-        for idx, movement in enumerate(movements):
+        index = 0
+        for movement in movements:
             assert movement.start.game_map == movement.end.game_map
-            with Image.open(movement.start.game_map.get_image_path()) as im:
-                draw = ImageDraw(im)
-                print(movement)
+            index = self.render_movement(
+                movement, current_index=index, output_directory=output_directory
+            )
+            # with Image.open(movement.start.game_map.get_image_path()) as im:
+            #     draw = ImageDraw(im)
+            #     print(movement)
+            #     draw.line(
+            #         (
+            #             movement.start.position.x,
+            #             movement.start.position.y,
+            #             movement.end.position.x,
+            #             movement.end.position.y,
+            #         ),
+            #         fill=(255, 0, 0),
+            #     )
+            #
+            #     output_file = os.path.join(output_directory, f"output_{idx}.jpeg")
+            #     im = im.crop((100, 100, 200, 200))
+            #     im.save(output_file, "jpeg")
+            #     # im.show()
+            #     # draw.line((0, 0) + im.size, fill=128)
+            #     # draw.line((0, im.size[1], im.size[0], 0), fill=128)
+
+    def render_movement(
+        self, movement: Movement, current_index: int, output_directory: str
+    ) -> int:
+        movement_speed = (
+            movement.movement_type.pixels_per_second
+            * movement.start.game_map.speed_multiplier
+        )
+        points = points_between(
+            movement.start.position, movement.end.position, movement_speed
+        )
+        with Image.open(movement.start.game_map.get_image_path()) as im:
+            draw = ImageDraw(im)
+            for point in points:
                 draw.line(
                     (
                         movement.start.position.x,
                         movement.start.position.y,
-                        movement.end.position.x,
-                        movement.end.position.y,
+                        point.x,
+                        point.y,
                     ),
                     fill=(255, 0, 0),
                 )
 
-                output_file = os.path.join(output_directory, f"output_{idx}.jpeg")
-                im.save(output_file, "jpeg")
-                # draw.line((0, 0) + im.size, fill=128)
-                # draw.line((0, im.size[1], im.size[0], 0), fill=128)
+                output_file = os.path.join(
+                    output_directory, f"output_{current_index}.jpeg"
+                )
+                current_index += 1
+                crop = im.crop(
+                    movement.start.game_map.get_crop_at_position(
+                        point, Position2D(x=512, y=512)
+                    )
+                )
+                crop.save(output_file, "jpeg")
+        return current_index
 
 
 class GameMap:
@@ -161,6 +231,8 @@ class GameMap:
         self.image_file: str = image_file
         self.speed_multiplier: float = speed_multiplier
         self.location_map: Dict[str, MapMarker] = {}
+        self.image = Image.open(self.image_file)
+        self.image_size = Position2D(*self.image.size)
 
     def __str__(self):
         return self.name
@@ -175,3 +247,29 @@ class GameMap:
 
     def get_image_path(self) -> str:
         return os.path.join(self.game.path, self.image_file)
+
+    def get_crop_at_position(
+        self, position: Position2D, crop_size: Position2D
+    ) -> Tuple[float, float, float, float]:
+        if crop_size.x > self.image_size.x or crop_size.y > self.image_size.y:
+            raise ValueError("Crop too large")
+        center = position
+        top_left = center - crop_size / 2
+        if top_left.x < 0:
+            top_left.x += top_left.x
+
+        if top_left.y < 0:
+            top_left.y += top_left.y
+
+        bottom_right = center + crop_size / 2
+        if bottom_right.x > self.image_size.x:
+            bottom_right.x -= bottom_right.x - self.image_size.x
+        if bottom_right.y > self.image_size.y:
+            bottom_right.y -= bottom_right.y - self.image_size.y
+
+        return (
+            int(top_left.x),
+            int(top_left.y),
+            int(bottom_right.x),
+            int(bottom_right.y),
+        )
