@@ -4,17 +4,17 @@
   "movement_types": [
     {
       "name": "walk",
-      "pixels_per_second": 10,
+      "pixels_per_second": 200,
       "colour": "#ff0000ff"
     },
     {
       "name": "boat",
-      "pixels_per_second": 15,
+      "pixels_per_second": 200,
       "colour": "#0000ffff"
     },
     {
       "name": "sewer",
-      "pixels_per_second": 15,
+      "pixels_per_second": 200,
       "colour": "#00ff00ff"
     }
   ]

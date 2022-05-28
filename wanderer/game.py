@@ -153,33 +153,46 @@ class Game:
         ]
 
     def render_route(self, route_name: str, output_directory: str):
+        for file in os.listdir(output_directory):
+            if file.endswith(".jpeg"):
+                os.remove(os.path.join(output_directory, file))
+
+        frame_rate = 24
+
         movements = self.parse_route_file(route_name)
         index = 0
         for movement in movements:
             assert movement.start.game_map == movement.end.game_map
             index = self.render_movement(
-                movement, current_index=index, output_directory=output_directory
+                movement,
+                current_index=index,
+                output_directory=output_directory,
+                frame_rate=frame_rate,
             )
 
         subprocess.run(
             [
                 "ffmpeg",
                 "-framerate",
-                "24",
+                str(frame_rate),
                 "-i",
                 os.path.join(output_directory, "output_%05d.jpeg"),
                 os.path.join(output_directory, "final.mp4"),
-                "-y"
+                "-y",
             ]
         )
 
     def render_movement(
-        self, movement: Movement, current_index: int, output_directory: str
+        self,
+        movement: Movement,
+        current_index: int,
+        output_directory: str,
+        frame_rate: int,
     ) -> int:
         movement_speed = (
             movement.movement_type.pixels_per_second
             * movement.start.game_map.speed_multiplier
-        )
+        ) / frame_rate
         points = points_between(
             movement.start.position, movement.end.position, movement_speed
         )
