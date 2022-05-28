@@ -1,6 +1,7 @@
 import math
 import os
 import re
+import subprocess
 from typing import Any, List, Dict, Tuple
 
 from PIL import Image
@@ -23,17 +24,9 @@ def points_between(
         return [start]
     distance = (end - start).magnitude()
 
-    # 0, 20
-    # 5
-    # distance / speed
     moves = math.ceil(distance / movement_speed)
 
-    # points = [lerp(start, end, distance / moves * move) for move in range(moves)]
     points = [start + (end - start).unit() * i * movement_speed for i in range(moves)]
-    # points = list(range(start, end, (end-start).unit()))
-    # points = [start + (end - start).unit() * movement_speed * i for ]
-    # if points[-1] != end:
-    #     points.append(end)
     return points
 
 
@@ -167,25 +160,18 @@ class Game:
             index = self.render_movement(
                 movement, current_index=index, output_directory=output_directory
             )
-            # with Image.open(movement.start.game_map.get_image_path()) as im:
-            #     draw = ImageDraw(im)
-            #     print(movement)
-            #     draw.line(
-            #         (
-            #             movement.start.position.x,
-            #             movement.start.position.y,
-            #             movement.end.position.x,
-            #             movement.end.position.y,
-            #         ),
-            #         fill=(255, 0, 0),
-            #     )
-            #
-            #     output_file = os.path.join(output_directory, f"output_{idx}.jpeg")
-            #     im = im.crop((100, 100, 200, 200))
-            #     im.save(output_file, "jpeg")
-            #     # im.show()
-            #     # draw.line((0, 0) + im.size, fill=128)
-            #     # draw.line((0, im.size[1], im.size[0], 0), fill=128)
+
+        subprocess.run(
+            [
+                "ffmpeg",
+                "-framerate",
+                "24",
+                "-i",
+                os.path.join(output_directory, "output_%05d.jpeg"),
+                os.path.join(output_directory, "final.mp4"),
+                "-y"
+            ]
+        )
 
     def render_movement(
         self, movement: Movement, current_index: int, output_directory: str
@@ -211,7 +197,7 @@ class Game:
                 )
 
                 output_file = os.path.join(
-                    output_directory, f"output_{current_index}.jpeg"
+                    output_directory, self.get_output_filename(current_index)
                 )
                 current_index += 1
                 crop = im.crop(
@@ -221,6 +207,10 @@ class Game:
                 )
                 crop.save(output_file, "jpeg")
         return current_index
+
+    def get_output_filename(self, index: int):
+        assert 0 <= index <= 10000
+        return f"output_{index:05}.jpeg"
 
 
 class GameMap:
@@ -250,9 +240,11 @@ class GameMap:
 
     def get_crop_at_position(
         self, position: Position2D, crop_size: Position2D
-    ) -> Tuple[float, float, float, float]:
+    ) -> Tuple[int, int, int, int]:
         if crop_size.x > self.image_size.x or crop_size.y > self.image_size.y:
-            raise ValueError("Crop too large")
+            raise ValueError(
+                f"Crop {crop_size} is larger than source image {self.image_size}"
+            )
         center = position
         top_left = center - crop_size / 2
         if top_left.x < 0:

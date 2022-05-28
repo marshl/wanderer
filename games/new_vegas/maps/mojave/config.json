@@ -24,9 +24,59 @@
       "y": 544
     },
     {
-      "name": "Jean's Skydiving",
+      "name": "Jean Skydiving",
       "x": 398,
       "y": 641
+    },
+    {
+      "name": "Goodpsrings Source",
+      "x": 367,
+      "y": 645
+    },
+    {
+      "name": "Powder Ganger Camp (West)",
+      "x": 393,
+      "y": 661
+    },
+    {
+      "name": "Lone Wolf Radio",
+      "x": 339,
+      "y": 683
+    },
+    {
+      "name": "Primm",
+      "x": 386,
+      "y": 757
+    },
+    {
+      "name": "Powder Ganger Camp (South)",
+      "x": 446,
+      "y": 703
+    },
+    {
+      "name": "NCR Correctional Facility",
+      "x": 464,
+      "y": 672
+    },
+    {
+      "name": "Powder Ganger Camp (East)",
+      "x": 498,
+      "y": 704
+    },
+    {
+      "name": "Powder Ganger Camp (North)",
+      "x": 476,
+      "y": 622
+    },
+    {
+      "name": "The Devil's Gullet",
+      "x": 393,
+      "y": 592
+    },
+    {
+      "name": "Yangtze Memorial",
+      "x": 416,
+      "y": 574
     }
   ]
 }
