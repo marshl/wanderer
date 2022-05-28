@@ -77,6 +77,41 @@
       "name": "Yangtze Memorial",
       "x": 416,
       "y": 574
+    },
+    {
+      "name": "Hidden Valley",
+      "x": 516,
+      "y": 602
+    },
+    {
+      "name": "Scorpion Gulch",
+      "x": 559,
+      "y": 630
+    },
+    {
+      "name": "Helios One",
+      "x": 641,
+      "y": 605
+    },
+    {
+      "name": "Gibson's Shack",
+      "x": 616,
+      "y": 638
+    },
+    {
+      "name": "Southern Nevada Wind Farm",
+      "x": 713,
+      "y": 644
+    },
+    {
+      "name": "Old Lady Gibson's Scrapyard",
+      "x": 648,
+      "y": 648
+    },
+    {
+      "name": "Emergency Service Railyard",
+      "x": 477,
+      "y": 745
     }
   ]
 }
