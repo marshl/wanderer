@@ -26,7 +26,7 @@ def points_between(
 
     moves = math.ceil(distance / movement_speed)
 
-    points = [start + (end - start).unit() * i * movement_speed for i in range(moves)]
+    points = [start + (end - start).unit() * i * movement_speed for i in range(moves)] + [end]
     return points
 
 
@@ -196,9 +196,10 @@ class Game:
         points = points_between(
             movement.start.position, movement.end.position, movement_speed
         )
-        with Image.open(movement.start.game_map.get_image_path()) as im:
-            draw = ImageDraw(im)
+        with Image.open(movement.start.game_map.get_image_path()) as base_image:
             for point in points:
+                im = base_image.copy()
+                draw = ImageDraw(im)
                 draw.line(
                     (
                         movement.start.position.x,
@@ -213,6 +214,7 @@ class Game:
                     output_directory, self.get_output_filename(current_index)
                 )
                 current_index += 1
+                im = self.overlay_arrow(im, point, movement.end.position)
                 crop = im.crop(
                     movement.start.game_map.get_crop_at_position(
                         point, (512, 512)
@@ -220,6 +222,25 @@ class Game:
                 )
                 crop.save(output_file, "jpeg")
         return current_index
+
+    def overlay_arrow(
+        self, image: Image, position: Position2D, pointing_to: Position2D
+    ) -> None:
+        diff = pointing_to - position
+        # angle_between = diff.angle_between(Position2D(x=1, y=0))
+        angle_between = math.atan2(diff.x, diff.y)
+        arrow_size = 32
+
+        with Image.open("arrow.png") as arrow_image:
+            arrow_image = arrow_image.convert("RGBA")
+            arrow_image = arrow_image.resize((arrow_size, arrow_size))
+            arrow_image = arrow_image.rotate(math.degrees(angle_between))
+            image.paste(
+                arrow_image,
+                (int(position.x - arrow_size / 2), int(position.y - arrow_size / 2)),
+                arrow_image.convert("RGBA"),
+            )
+            return image
 
     def get_output_filename(self, index: int):
         assert 0 <= index <= 10000
