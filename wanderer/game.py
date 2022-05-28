@@ -215,7 +215,7 @@ class Game:
                 current_index += 1
                 crop = im.crop(
                     movement.start.game_map.get_crop_at_position(
-                        point, Position2D(x=512, y=512)
+                        point, (512, 512)
                     )
                 )
                 crop.save(output_file, "jpeg")
@@ -252,29 +252,20 @@ class GameMap:
         return os.path.join(self.game.path, self.image_file)
 
     def get_crop_at_position(
-        self, position: Position2D, crop_size: Position2D
+        self, position: Position2D, crop_size: Tuple[int, int]
     ) -> Tuple[int, int, int, int]:
-        if crop_size.x > self.image_size.x or crop_size.y > self.image_size.y:
+        height, width = crop_size
+
+        if width > self.image_size.x or height > self.image_size.y:
             raise ValueError(
                 f"Crop {crop_size} is larger than source image {self.image_size}"
             )
-        center = position
-        top_left = center - crop_size / 2
-        if top_left.x < 0:
-            top_left.x += top_left.x
 
-        if top_left.y < 0:
-            top_left.y += top_left.y
-
-        bottom_right = center + crop_size / 2
-        if bottom_right.x > self.image_size.x:
-            bottom_right.x -= bottom_right.x - self.image_size.x
-        if bottom_right.y > self.image_size.y:
-            bottom_right.y -= bottom_right.y - self.image_size.y
-
+        center_x = int(max(width / 2, min(position.x, self.image_size.x - width / 2)))
+        center_y = int(max(height / 2, min(position.y, self.image_size.y - height / 2)))
         return (
-            int(top_left.x),
-            int(top_left.y),
-            int(bottom_right.x),
-            int(bottom_right.y),
+            int(center_x - width / 2),
+            int(center_y - height / 2),
+            int(center_x + width / 2),
+            int(center_y + height / 2),
         )
