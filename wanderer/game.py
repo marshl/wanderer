@@ -255,7 +255,7 @@ class Game:
 
     def get_output_filename(self, index: int):
         assert 0 <= index <= 10000
-        return f"output_{index:05}.jpeg"
+        return f"output_{index:05}.webp"
 
 
 class GameMap:
