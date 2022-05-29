@@ -1,13 +1,8 @@
 {
   "name": "Zion",
   "image_file": "Zion_worldmap_01.webp",
-  "speed_multiplier": 1.0,
+  "speed_multiplier": 2.0,
   "locations": [
-    {
-      "name": "Southern Passage",
-      "x": 377,
-      "y": 883
-    },
     {
       "name": "Zion Valley Welcome Booth",
       "x": 653,
@@ -50,63 +45,53 @@
     },
     {
       "name": "The Aerie",
-      "x": 0,
-      "y": 0
+      "x": 539,
+      "y": 559
     },
     {
       "name": "Ant burrow",
-      "x": 0,
-      "y": 0
+      "x": 612,
+      "y": 627
     },
     {
       "name": "The Bend Bridge",
-      "x": 0,
-      "y": 0
+      "x": 407,
+      "y": 621
     },
     {
       "name": "Bighorn Bluff",
-      "x": 0,
-      "y": 0
+      "x": 344,
+      "y": 660
     },
     {
       "name": "Burial mounds",
-      "x": 0,
-      "y": 0
+      "x": 750,
+      "y": 515
     },
     {
       "name": "Caterpillar's Mound",
-      "x": 0,
-      "y": 0
+      "x": 557,
+      "y": 317
     },
     {
       "name": "Clear Water docks",
-      "x": 0,
-      "y": 0
+      "x": 748,
+      "y": 412
     },
     {
       "name": "Court Fork Overlook",
-      "x": 0,
-      "y": 0
-    },
-    {
-      "name": "Crashed scout bus",
-      "x": 0,
-      "y": 0
+      "x": 418,
+      "y": 570
     },
     {
       "name": "Dagger's Point",
-      "x": 0,
-      "y": 0
-    },
-    {
-      "name": "Dead Horses camp",
-      "x": 0,
-      "y": 0
+      "x": 444,
+      "y": 682
     },
     {
       "name": "East Fork Bridge",
-      "x": 0,
-      "y": 0
+      "x": 667,
+      "y": 554
     },
     {
       "name": "Eastern Virgin",
@@ -115,183 +100,168 @@
     },
     {
       "name": "General Store",
-      "x": 0,
-      "y": 0
+      "x": 455,
+      "y": 412
     },
     {
       "name": "Ghost Den",
-      "x": 0,
-      "y": 0
+      "x": 663,
+      "y": 327
     },
     {
       "name": "North Fork Bridge",
-      "x": 0,
-      "y": 0
+      "x": 484,
+      "y": 492
     },
     {
       "name": "North Fork campground",
-      "x": 0,
-      "y": 0
+      "x": 545,
+      "y": 497
     },
     {
       "name": "Patriarchs' campground",
-      "x": 0,
-      "y": 0
+      "x": 422,
+      "y": 524
     },
     {
       "name": "Pine Creek tunnel",
-      "x": 0,
-      "y": 0
+      "x": 827,
+      "y": 625
     },
     {
       "name": "Ranger Substation Eagle",
-      "x": 0,
-      "y": 0
+      "x": 347,
+      "y": 630
     },
     {
       "name": "Ranger Substation Osprey",
-      "x": 0,
-      "y": 0
+      "x": 511,
+      "y": 373
     },
     {
       "name": "Ranger Substation Peregrine",
-      "x": 0,
-      "y": 0
+      "x": 622,
+      "y": 686
     },
     {
       "name": "Red Rapids docks",
-      "x": 0,
-      "y": 0
+      "x": 445,
+      "y": 728
     },
     {
       "name": "The Red Gate",
-      "x": 0,
-      "y": 0
+      "x": 422,
+      "y": 696
     },
     {
       "name": "Sorrows camp",
-      "x": 0,
-      "y": 0
+      "x": 587,
+      "y": 202
     },
     {
       "name": "Sorrows Fork campground",
-      "x": 0,
-      "y": 0
+      "x": 611,
+      "y": 386
     },
     {
       "name": "Southern passage",
-      "x": 0,
-      "y": 0
+      "x": 379,
+      "y": 882
     },
     {
       "name": "Sun Sentinels",
-      "x": 0,
-      "y": 0
+      "x": 626,
+      "y": 472
     },
     {
       "name": "Three Marys",
-      "x": 0,
-      "y": 0
+      "x": 325,
+      "y": 753
     },
     {
       "name": "Vault 22 dwellers' guard camp",
-      "x": 0,
-      "y": 0
+      "x": 723,
+      "y": 322
     },
     {
       "name": "Virgin Fork campground",
-      "x": 0,
-      "y": 0
+      "x": 637,
+      "y": 624
     },
     {
       "name": "Virgin River",
-      "x": 0,
-      "y": 0
+      "x": 480,
+      "y": 660
     },
     {
       "name": "Wind Wall docks",
-      "x": 0,
-      "y": 0
+      "x": 735,
+      "y": 467
     },
     {
       "name": "Zion fishing lodge",
-      "x": 0,
-      "y": 0
+      "x": 660,
+      "y": 464
     },
     {
       "name": "Zion Ranger station",
-      "x": 0,
-      "y": 0
-    },
-    {
-      "name": "Zion Valley welcome booth",
-      "x": 0,
-      "y": 0
-    },
-    {
-      "name": "Angel cave",
-      "x": 0,
-      "y": 0
+      "x": 454,
+      "y": 388
     },
     {
       "name": "Crossroad cavern",
-      "x": 0,
-      "y": 0
+      "x": 632,
+      "y": 182
     },
     {
       "name": "Cueva Guarache",
-      "x": 0,
-      "y": 0
-    },
-    {
-      "name": "Fallen Rock cave",
-      "x": 0,
-      "y": 0
+      "x": 523,
+      "y": 418
     },
     {
       "name": "Glass Chime cave",
-      "x": 0,
-      "y": 0
+      "x": 632,
+      "y": 168
     },
     {
       "name": "Half Mouse cave",
-      "x": 0,
-      "y": 0
+      "x": 659,
+      "y": 151
     },
     {
       "name": "Morning Glory cave",
-      "x": 0,
-      "y": 0
+      "x": 434,
+      "y": 479
     },
     {
       "name": "Stone Bones cave",
-      "x": 0,
-      "y": 0
+      "x": 609,
+      "y": 155
     },
     {
       "name": "Sweet Flower cave",
-      "x": 0,
-      "y": 0
+      "x": 574,
+      "y": 216
     },
     {
       "name": "Three Marys' Caverns",
-      "x": 0,
-      "y": 0
+      "x": 168,
+      "y": 769
     },
     {
       "name": "Two Skies cave",
-      "x": 0,
-      "y": 0
+      "x": 521,
+      "y": 675
     },
     {
       "name": "White Bird's cave",
-      "x": 0,
-      "y": 0
+      "x": 645,
+      "y": 185
     },
     {
       "name": "Yao guai cave",
-      "x": 0,
-      "y": 0
+      "x": 692,
+      "y": 534
     }
   ]
 }
