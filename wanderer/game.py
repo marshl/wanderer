@@ -166,13 +166,18 @@ class Game:
 
     def render_route(self, route_name: str, output_directory: str):
         for file in os.listdir(output_directory):
-            if file.endswith(".jpeg") or file.endswith(".webp") or file.endswith(".mp4"):
+            if (
+                file.endswith(".jpeg")
+                or file.endswith(".webp")
+                or file.endswith(".mp4")
+            ):
                 os.remove(os.path.join(output_directory, file))
 
         frame_rate = 24
 
         movements = self.parse_route_file(route_name)
         index = 0
+        extension = "jpeg"
         for movement in movements:
             if movement.start.game_map != movement.end.game_map:
                 # TODO: Some kind of map transition
@@ -183,6 +188,7 @@ class Game:
                 current_index=index,
                 output_directory=output_directory,
                 frame_rate=frame_rate,
+                extension=extension,
             )
 
         subprocess.run(
@@ -191,7 +197,7 @@ class Game:
                 "-framerate",
                 str(frame_rate),
                 "-i",
-                os.path.join(output_directory, "output_%05d.webp"),
+                os.path.join(output_directory, f"output_%05d.{extension}"),
                 os.path.join(output_directory, "final.mp4"),
                 "-y",
             ]
@@ -203,6 +209,7 @@ class Game:
         current_index: int,
         output_directory: str,
         frame_rate: int,
+        extension: str,
     ) -> int:
         movement_speed = (
             movement.movement_type.pixels_per_second
@@ -229,7 +236,8 @@ class Game:
             )
 
             output_file = os.path.join(
-                output_directory, self.get_output_filename(current_index)
+                output_directory,
+                self.get_output_filename(current_index, extension=extension),
             )
             current_index += 1
             if point == points[-1]:
@@ -243,7 +251,7 @@ class Game:
             crop = im.crop(
                 movement.start.game_map.get_crop_at_position(point, (512, 512))
             )
-            crop.save(output_file, "webp")
+            crop.save(output_file, extension)
 
         # if im:
         #     movement.start.game_map.image = im
@@ -268,9 +276,9 @@ class Game:
             )
             return image
 
-    def get_output_filename(self, index: int):
+    def get_output_filename(self, index: int, extension: str):
         assert 0 <= index <= 10000
-        return f"output_{index:05}.webp"
+        return f"output_{index:05}.{extension}"
 
 
 class GameMap:
