@@ -7,6 +7,7 @@ from typing import Any, List, Dict, Tuple
 from PIL import Image
 from PIL.ImageDraw import ImageDraw
 from rapidfuzz import fuzz
+from slugify import slugify
 
 from wanderer.position2d import Position2D
 
@@ -275,19 +276,19 @@ class GameMap:
     def add_location(self, location: "MapMarker") -> None:
         if location.name in self.location_map:
             raise ValueError(f'Location "{location.name}" already exists in map {self}')
-        self.location_map[location.name] = location
+        self.location_map[slugify(location.name)] = location
 
     def find_location_by_name(
         self, location_name: str, fuzzy: bool = False
     ) -> List["MapMarker"]:
         if not fuzzy:
-            location = self.location_map.get(location_name)
+            location = self.location_map.get(slugify(location_name))
             return [location] if location else []
 
         locations = [
             location
-            for name, location in self.location_map.items()
-            if fuzz.ratio(location_name, name) >= 75
+            for location in self.location_map.values()
+            if fuzz.ratio(location_name, location.name) >= 75
         ]
         return locations
 
