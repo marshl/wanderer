@@ -211,35 +211,49 @@ class Game:
         points = points_between(
             movement.start.position, movement.end.position, movement_speed
         )
-        with Image.open(movement.start.game_map.get_image_path()) as base_image:
-            for point in points:
-                im = base_image.copy()
-                draw = ImageDraw(im)
-                draw.line(
-                    (
-                        movement.start.position.x,
-                        movement.start.position.y,
-                        point.x,
-                        point.y,
-                    ),
-                    fill=(255, 0, 0),
-                )
+        base_image = movement.start.game_map.image
 
-                output_file = os.path.join(
-                    output_directory, self.get_output_filename(current_index)
-                )
-                current_index += 1
-                im = self.overlay_arrow(im, point, movement.end.position)
-                crop = im.crop(
-                    movement.start.game_map.get_crop_at_position(point, (512, 512))
-                )
-                crop.save(output_file, "jpeg")
+        # with Image.open(movement.start.game_map.get_image_path()) as base_image:
+        # im = None
+        for point in points:
+            im = base_image.copy()
+            draw = ImageDraw(im)
+            draw.line(
+                (
+                    movement.start.position.x,
+                    movement.start.position.y,
+                    point.x,
+                    point.y,
+                ),
+                fill=(255, 0, 0),
+            )
+
+            output_file = os.path.join(
+                output_directory, self.get_output_filename(current_index)
+            )
+            current_index += 1
+            if point == points[-1]:
+                movement.start.game_map.image = im.copy()
+            im = self.overlay_arrow(
+                im,
+                start=movement.start.position,
+                end=movement.end.position,
+                current=point,
+            )
+            crop = im.crop(
+                movement.start.game_map.get_crop_at_position(point, (512, 512))
+            )
+            crop.save(output_file, "webp")
+
+        # if im:
+        #     movement.start.game_map.image = im
+
         return current_index
 
     def overlay_arrow(
-        self, image: Image, position: Position2D, pointing_to: Position2D
+        self, image: Image, start: Position2D, end: Position2D, current: Position2D
     ) -> Image:
-        diff = pointing_to - position
+        diff = end - start
         angle_between = math.atan2(diff.x, diff.y)
         arrow_size = 24
 
@@ -249,7 +263,7 @@ class Game:
             arrow_image = arrow_image.rotate(math.degrees(angle_between))
             image.paste(
                 arrow_image,
-                (int(position.x - arrow_size / 2), int(position.y - arrow_size / 2)),
+                (int(current.x - arrow_size / 2), int(current.y - arrow_size / 2)),
                 arrow_image.convert("RGBA"),
             )
             return image
