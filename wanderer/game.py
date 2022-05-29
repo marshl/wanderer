@@ -163,7 +163,7 @@ class Game:
 
     def render_route(self, route_name: str, output_directory: str):
         for file in os.listdir(output_directory):
-            if file.endswith(".jpeg"):
+            if file.endswith(".jpeg") or file.endswith(".webp") or file.endswith(".mp4"):
                 os.remove(os.path.join(output_directory, file))
 
         frame_rate = 24
@@ -188,7 +188,7 @@ class Game:
                 "-framerate",
                 str(frame_rate),
                 "-i",
-                os.path.join(output_directory, "output_%05d.jpeg"),
+                os.path.join(output_directory, "output_%05d.webp"),
                 os.path.join(output_directory, "final.mp4"),
                 "-y",
             ]
