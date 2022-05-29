@@ -288,9 +288,12 @@ class GameMap:
         return self.name
 
     def add_location(self, location: "MapMarker") -> None:
-        if location.name in self.location_map:
-            raise ValueError(f'Location "{location.name}" already exists in map {self}')
-        self.location_map[slugify(location.name)] = location
+        name_slug = slugify(location.name)
+        if name_slug in self.location_map:
+            raise ValueError(
+                f'Location "{location.name}" ({name_slug}) already exists in map {self}'
+            )
+        self.location_map[name_slug] = location
 
     def find_location_by_name(
         self, location_name: str, fuzzy: bool = False
