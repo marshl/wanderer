@@ -27,7 +27,9 @@ def points_between(
 
     moves = math.ceil(distance / movement_speed)
 
-    return [start + (end - start).unit() * i * movement_speed for i in range(moves)]
+    return [start + (end - start).unit() * i * movement_speed for i in range(moves)] + [
+        end
+    ]
 
 
 class MapMarker:
