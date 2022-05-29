@@ -117,6 +117,251 @@
       "name": "Camp Forlorn Hope",
       "x": 786,
       "y": 656
+    },
+    {
+      "name": "Prospector's Den",
+      "x": 445,
+      "y": 801
+    },
+    {
+      "name": "California Sunset Drive-in",
+      "x": 351,
+      "y": 783
+    },
+    {
+      "name": "Mesquite Mountains Crater",
+      "x": 287,
+      "y": 790
+    },
+    {
+      "name": "Mojave Outpost",
+      "x": 302,
+      "y": 917
+    },
+    {
+      "name": "Nipton Road Reststop",
+      "x": 343,
+      "y": 866
+    },
+    {
+      "name": "Nevada Highway Patrol Station",
+      "x": 363,
+      "y": 825
+    },
+    {
+      "name": "Mesquite Mountain Camp Site",
+      "x": 302,
+      "y": 854
+    },
+    {
+      "name": "Ivanpah Dry Lake",
+      "x": 387,
+      "y": 831
+    },
+    {
+      "name": "Ivanpah Race Track",
+      "x": 400,
+      "y": 862
+    },
+    {
+      "name": "Nipton Road Pit Stop",
+      "x": 401,
+      "y": 896
+    },
+    {
+      "name": "Nipton",
+      "x": 465,
+      "y": 893
+    },
+    {
+      "name": "Mojave Drive-in",
+      "x": 458,
+      "y": 932
+    },
+    {
+      "name": "Bradley's Shack",
+      "x": 492,
+      "y": 959
+    },
+    {
+      "name": "Wolfhorn Ranch",
+      "x": 549,
+      "y": 867
+    },
+    {
+      "name": "Walking Box Cavern",
+      "x": 530,
+      "y": 820
+    },
+    {
+      "name": "Hidden Supply Cave",
+      "x": 499,
+      "y": 841
+    },
+    {
+      "name": "Coyote Den",
+      "x": 475,
+      "y": 835
+    },
+    {
+      "name": "Jack Rabbit Springs",
+      "x": 439,
+      "y": 825
+    },
+    {
+      "name": "Morning Star Cavern",
+      "x": 357,
+      "y": 920
+    },
+    {
+      "name": "Crescent Canyon West",
+      "x": 359,
+      "y": 946
+    },
+    {
+      "name": "Crescent Canyon East",
+      "x": 437,
+      "y": 978
+    },
+    {
+      "name": "Novac",
+      "x": 643,
+      "y": 690
+    },
+    {
+      "name": "El Dorado Gas & Service",
+      "x": 702,
+      "y": 580
+    },
+    {
+      "name": "188 Trading Post",
+      "x": 667,
+      "y": 483
+    },
+    {
+      "name": "Vault 11",
+      "x": 660,
+      "y": 515
+    },
+    {
+      "name": "El Dorado Dry Lake",
+      "x": 671,
+      "y": 550
+    },
+    {
+      "name": "Repconn Headquarters",
+      "x": 576,
+      "y": 449
+    },
+    {
+      "name": "Gulp n' Grub Rest Stop",
+      "x": 595,
+      "y": 393
+    },
+    {
+      "name": "East Pump Station",
+      "x": 589,
+      "y": 298
+    },
+    {
+      "name": "New Vegas Medical Clinic",
+      "x": 577,
+      "y": 231
+    },
+    {
+      "name": "Mole Rat Ranch",
+      "x": 587,
+      "y": 222
+    },
+    {
+      "name": "Crimson Caravan Company",
+      "x": 557,
+      "y": 229
+    },
+    {
+      "name": "NCR Sharecropper Farms",
+      "x": 549,
+      "y": 303
+    },
+    {
+      "name": "Aerotech Office Park",
+      "x": 556,
+      "y": 340
+    },
+    {
+      "name": "Cassidy's Caravan Wreckage",
+      "x": 560,
+      "y": 406
+    },
+    {
+      "name": "Allied Technologies Offices",
+      "x": 525,
+      "y": 413
+    },
+    {
+      "name": "Ant Mound",
+      "x": 533,
+      "y": 431
+    },
+    {
+      "name": "Hunter's Farm",
+      "x": 500,
+      "y": 458
+    },
+    {
+      "name": "Junction B Railway Station",
+      "x": 521,
+      "y": 484
+    },
+    {
+      "name": "Sloan",
+      "x": 478,
+      "y": 562
+    },
+    {
+      "name": "Primm Pass",
+      "x": 509,
+      "y": 753
+    },
+    {
+      "name": "Harper's Shack",
+      "x": 537,
+      "y": 754
+    },
+    {
+      "name": "Ranger Station Charlie",
+      "x": 585,
+      "y": 748
+    },
+    {
+      "name": "Legion Raid Camp",
+      "x": 591,
+      "y": 823
+    },
+    {
+      "name": "Toxic Dump Site",
+      "x": 683,
+      "y": 690
+    },
+    {
+      "name": "Nelson",
+      "x": 753,
+      "y": 694
+    },
+    {
+      "name": "West Pump Station",
+      "x": 485,
+      "y": 373
+    },
+    {
+      "name": "Camp McCarran",
+      "x": 506,
+      "y": 338
+    },
+    {
+      "name": "The Basincreek Building",
+      "x": 493,
+      "y": 405
     }
   ]
 }

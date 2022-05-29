@@ -6,6 +6,7 @@ from typing import Any, List, Dict, Tuple
 
 from PIL import Image
 from PIL.ImageDraw import ImageDraw
+from rapidfuzz import fuzz
 
 from wanderer.position2d import Position2D
 
@@ -26,8 +27,7 @@ def points_between(
 
     moves = math.ceil(distance / movement_speed)
 
-    points = [start + (end - start).unit() * i * movement_speed for i in range(moves)] + [end]
-    return points
+    return [start + (end - start).unit() * i * movement_speed for i in range(moves)]
 
 
 class MapMarker:
@@ -75,14 +75,23 @@ class Game:
     def find_location_by_name(self, location_name: str) -> "MapMarker":
         locations = []
         for game_map in self.game_maps:
-            location = game_map.find_location_by_name(location_name)
-            if location is not None:
-                locations.append(location)
+            locations += game_map.find_location_by_name(location_name, fuzzy=False)
 
         if len(locations) > 1:
             raise ValueError(f'Too many location match the name "{location_name}"')
 
         if len(locations) == 0:
+            fuzzy_locations = []
+            for game_map in self.game_maps:
+                fuzzy_locations += game_map.find_location_by_name(
+                    location_name, fuzzy=True
+                )
+
+            if fuzzy_locations:
+                raise ValueError(
+                    f'Cannot find location with name "{location_name}". '
+                    f'Did you mean {" or ".join(loc.name for loc in fuzzy_locations)}?'
+                )
             raise ValueError(f'Cannot find location with name "{location_name}"')
 
         return locations[0]
@@ -163,6 +172,7 @@ class Game:
         index = 0
         for movement in movements:
             assert movement.start.game_map == movement.end.game_map
+            print(movement)
             index = self.render_movement(
                 movement,
                 current_index=index,
@@ -216,20 +226,17 @@ class Game:
                 current_index += 1
                 im = self.overlay_arrow(im, point, movement.end.position)
                 crop = im.crop(
-                    movement.start.game_map.get_crop_at_position(
-                        point, (512, 512)
-                    )
+                    movement.start.game_map.get_crop_at_position(point, (512, 512))
                 )
                 crop.save(output_file, "jpeg")
         return current_index
 
     def overlay_arrow(
         self, image: Image, position: Position2D, pointing_to: Position2D
-    ) -> None:
+    ) -> Image:
         diff = pointing_to - position
-        # angle_between = diff.angle_between(Position2D(x=1, y=0))
         angle_between = math.atan2(diff.x, diff.y)
-        arrow_size = 32
+        arrow_size = 24
 
         with Image.open("arrow.png") as arrow_image:
             arrow_image = arrow_image.convert("RGBA")
@@ -266,8 +273,19 @@ class GameMap:
             raise ValueError(f'Location "{location.name}" already exists in map {self}')
         self.location_map[location.name] = location
 
-    def find_location_by_name(self, location_name: str) -> "MapMarker":
-        return self.location_map.get(location_name)
+    def find_location_by_name(
+        self, location_name: str, fuzzy: bool = False
+    ) -> List["MapMarker"]:
+        if not fuzzy:
+            location = self.location_map.get(location_name)
+            return [location] if location else []
+
+        locations = [
+            location
+            for name, location in self.location_map.items()
+            if fuzz.ratio(location_name, name) >= 75
+        ]
+        return locations
 
     def get_image_path(self) -> str:
         return os.path.join(self.game.path, self.image_file)
