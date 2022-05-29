@@ -2,5 +2,296 @@
   "name": "Zion",
   "image_file": "Zion_worldmap_01.webp",
   "speed_multiplier": 1.0,
-  "locations": []
+  "locations": [
+    {
+      "name": "Southern Passage",
+      "x": 377,
+      "y": 883
+    },
+    {
+      "name": "Zion Valley Welcome Booth",
+      "x": 653,
+      "y": 743
+    },
+    {
+      "name": "Fallen Rock Cave",
+      "x": 850,
+      "y": 706
+    },
+    {
+      "name": "Dead Horses Camp",
+      "x": 823,
+      "y": 761
+    },
+    {
+      "name": "Angel Cave",
+      "x": 828,
+      "y": 777
+    },
+    {
+      "name": "The Spine",
+      "x": 519,
+      "y": 718
+    },
+    {
+      "name": "Crashed Scout Bus",
+      "x": 604,
+      "y": 723
+    },
+    {
+      "name": "Ranger Station Peregrine",
+      "x": 618,
+      "y": 682
+    },
+    {
+      "name": "Old Rockville Bridge",
+      "x": 564,
+      "y": 668
+    },
+    {
+      "name": "The Aerie",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Ant burrow",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "The Bend Bridge",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Bighorn Bluff",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Burial mounds",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Caterpillar's Mound",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Clear Water docks",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Court Fork Overlook",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Crashed scout bus",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Dagger's Point",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Dead Horses camp",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "East Fork Bridge",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Eastern Virgin",
+      "x": 682,
+      "y": 711
+    },
+    {
+      "name": "General Store",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Ghost Den",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "North Fork Bridge",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "North Fork campground",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Patriarchs' campground",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Pine Creek tunnel",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Ranger Substation Eagle",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Ranger Substation Osprey",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Ranger Substation Peregrine",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Red Rapids docks",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "The Red Gate",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Sorrows camp",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Sorrows Fork campground",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Southern passage",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Sun Sentinels",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Three Marys",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Vault 22 dwellers' guard camp",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Virgin Fork campground",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Virgin River",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Wind Wall docks",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Zion fishing lodge",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Zion Ranger station",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Zion Valley welcome booth",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Angel cave",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Crossroad cavern",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Cueva Guarache",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Fallen Rock cave",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Glass Chime cave",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Half Mouse cave",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Morning Glory cave",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Stone Bones cave",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Sweet Flower cave",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Three Marys' Caverns",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Two Skies cave",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "White Bird's cave",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Yao guai cave",
+      "x": 0,
+      "y": 0
+    }
+  ]
 }

@@ -98,7 +98,7 @@ Walk to Cassidy's Caravan Wreckage
 Walk to Allied Technologies Offices
 Walk to Ant Mound
 Walk to Hunter's Farm
-Walk to Junction B Railway Station
+Walk to Junction 15 Railway Station
 Walk to Sloan
 Walk to Hidden Valley
 Walk to NCR Correctional Facility
@@ -124,3 +124,151 @@ Walk to Allied Technologies Offices
 Walk to Repconn Headquarters
 Walk to 188 Trading Post
 Walk to Helios One
+Walk to Novac
+Walk to Repconn Test Site
+Walk to Novac
+Walk to Gibson Scrap Yard
+WAlk to Repconn Test Site
+Walk to Novac
+Walk to El Dorado Gas & Service
+Walk to Boulder City
+Walk to Hoover Dam
+Walk to Boulder City
+Walk to 188 Trading Post
+Walk to Follower's Outpost
+Walk to Allied Technologies Offices
+WAlk to Camp McCarran
+Walk to El Ray Motel
+Walk to South Vegas Ruins East Entrance
+Walk to Vault 3
+Walk to New Vegas Steel
+Walk to Hunter's Farm
+Walk to Junction 15 Railway Station
+Walk to Neil's Shack
+Walk to Black Mountain
+Walk to Scorpion Gulch
+Walk to Hidden Valley
+Walk to Scorpion Gulch
+Walk to Hidden Valley
+Walk to Scorpion Gulch
+Walk to Helios One
+Walk to Novac
+Walk to Ranger Station Charlie
+Walk to Primm Pass
+Walk to Primm
+Walk to Powder Ganger Camp (West)
+Walk to Jean Skydiving
+Walk to Powder Ganger Camp (North)
+Walk to Neil's Shack
+Walk to NCR Ranger Safehouse
+Walk to Repconn Headquarters
+Walk to Gulp n' Grub Rest Stop
+Walk to New Vegas Medical Clinic
+Walk to Crimson Caravan Company
+Walk to Freeside's East Gate
+walk to Freeside's North Gate
+Walk to Old Mormon Fort
+Walk to Freeside's North Gate
+Walk to Mole Rat Ranch
+Walk to Durable Dunn's Sacked Caravan
+Walk to Freeside's North Gate
+Walk to The Strip North Gate
+Walk to Freeside's East Gate
+Walk to NCR Sharecropper Farms
+Walk to El Ray Motel
+Walk to Hunter's Farm
+Walk to Hidden Valley
+Walk to Junction 15 Railway Station
+Walk to Camp McCarran
+Walk to NCR Sharecropper Farms
+Walk to Crimson Caravan Company
+Walk to Gun Runners
+Walk to Field's Shack
+Walk to Raul's Shack
+Walk to Nellis Air Force Base
+Walk to Carlyle St. Clair's House
+Walk to Northern Passage
+Teleport to Southern Passage
+Walk to Zion Valley Welcome Booth
+Walk to Eastern Virgin
+Walk to Fallen Rock Cave
+Walk to Dead Horses Camp
+Walk to Angel Cave
+Walk to Eastern Virgin
+Walk to The Spine
+Walk to Crashed Scout Bus
+Walk to Ranger Station Peregrine
+Walk to Old Rockville Bridge
+Walk to Zion fishing lodge
+WAlk to Sun Sentinels
+Walk to North Fork campground
+Walk to North Fork Bridge
+Walk to General Store
+Walk to Zion Ranger station
+Walk to Ranger Substation Osprey
+WAlk to Cueva Guarache
+Walk to Caterpillar's Mound
+Walk to Sorrows camp
+Walk to White Bird's cave
+Walk to Crossroad cavern
+Walk to Glass Chime cave
+Walk to Half Mouse cave
+Walk to Stone Bones cave
+Walk to Sweet Flower cave
+Walk to Caterpillar's Mound
+Walk to Ghost Den
+Walk to Vault 22 dwellers' guard camp
+Walk to Caterpillar's Mound
+Walk to Sorrows camp
+Walk to White Bird's cave
+WAlk to Sorrows camp
+Walk to Caterpillar's Mound
+Walk to Sorrows Fork campground
+Walk to Clear Water docks
+Walk to Wind Wall docks
+Walk to Burial mounds
+Walk to East Fork Bridge
+WAlk to Pine Creek tunnel
+Walk to Yao Guai cave
+Walk to North Fork Campground
+Walk to North Fork Bridge
+Walk to Morning GLory Cave
+Walk to Patriarchs' campground
+Walk to Court Fork Overlook
+Walk to The Bend Bridge
+Walk to Ranger Substation Eagle
+Walk to Bighorn Bluff
+WAlk to The Red Gate
+Walk to Virgin River
+Walk to Two Skies Cave
+Walk to Old Rockville Bridge
+WAlk to Virgin River
+Walk to Dagger's Point
+Walk to the Aerie
+Walk to Sorrows Camp
+Walk to Caterpillar's Mound
+Walk to Sorrows Fork campground
+Walk to North Fork Campground
+Walk to Old Rockville Bridge
+WAlk to Red Rapids Docks
+Walk to Three Marys'
+Walk to Three Marys' Caverns
+Walk to Southern Passage
+Teleport to Northern Passage
+Walk to North Vegas Square
+Walk to Freeside's North Gate
+Walk to Old MOrmon Fort
+Walk to Freeside's North Gate
+Walk to Gun RUnners
+Walk to Aerotech Office Park
+Walk to Follower's Outpost
+Walk to El Dorado Dry Lake
+Walk to Novac
+Walk to Highway 953 Viper Encampment
+Walk to Wrecked Highwayman
+Walk to Snyder Prospector Camp
+Walk to Raided Farmstead
+Walk to Matthews Animal Husbandry Farm
+Walk to Old Nuclear Test Site
+Walk to Caesar's Legion Safehouse
+Walk to Mojave Drive-in
