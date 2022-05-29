@@ -171,7 +171,9 @@ class Game:
         movements = self.parse_route_file(route_name)
         index = 0
         for movement in movements:
-            assert movement.start.game_map == movement.end.game_map
+            if movement.start.game_map != movement.end.game_map:
+                # TODO: Some kind of map transition
+                continue
             print(movement)
             index = self.render_movement(
                 movement,
