@@ -185,7 +185,7 @@ class Game:
 
         movements = self.parse_route_file(route_name)
         index = 0
-        extension = "webp"
+        extension = "jpeg"
         for movement in movements:
             if movement.start.game_map != movement.end.game_map:
                 # TODO: Some kind of map transition
@@ -198,6 +198,14 @@ class Game:
                 frame_rate=frame_rate,
                 extension=extension,
             )
+
+        self.render_final_zoom_out(
+            last_movement=movements[-1],
+            current_index=index,
+            output_directory=output_directory,
+            frame_rate=frame_rate,
+            extension=extension,
+        )
 
         subprocess.run(
             [
@@ -228,8 +236,6 @@ class Game:
         )
         base_image = movement.start.game_map.image
 
-        # with Image.open(movement.start.game_map.get_image_path()) as base_image:
-        # im = None
         for point in points:
             im = base_image.copy()
             draw = ImageDraw(im)
@@ -261,8 +267,39 @@ class Game:
             )
             crop.save(output_file, extension)
 
-        # if im:
-        #     movement.start.game_map.image = im
+        return current_index
+
+    def render_final_zoom_out(
+        self,
+        last_movement: Movement,
+        current_index: int,
+        output_directory: str,
+        frame_rate: int,
+        extension: str,
+    ) -> int:
+        game_map = last_movement.end.game_map
+        movement_speed = (
+            last_movement.movement_type.pixels_per_second * game_map.speed_multiplier * 0.25
+        ) / frame_rate
+
+        start = last_movement.end.position
+        end = game_map.image_size / 2
+        points = points_between(start, end, movement_speed)
+        base_image = game_map.image
+
+        for point in points:
+            im = base_image.copy()
+            output_file = os.path.join(
+                output_directory,
+                self.get_output_filename(current_index, extension=extension),
+            )
+
+            zoom_ratio = (start - point).magnitude() / (start - end).magnitude()
+            resize = lerp(Position2D(x=512, y=512), game_map.image_size,  zoom_ratio)
+            crop = im.crop(game_map.get_crop_at_position(point, (int(resize.x), int(resize.y))))
+            crop = crop.resize((512, 512))
+            crop.save(output_file, extension)
+            current_index += 1
 
         return current_index
 
