@@ -769,11 +769,14 @@ Walk to Waste Disposal Station
 Walk to wastewater Treatment Plant
 Walk to Ulysses' Temple
 Teleport to Canyon Wreckage
+Teleport to Pass to Canyon Wreckage
+Walk to Hopeville Silo Bunker Entrance
+Tunnel to Hopeville Missile silo Bunker
 Walk to Path to the Courier's Mile
 Teleport to The Courier's Mile
 Teleport to Path to the Courier's mile
 Walk to Hopeville Missile silo Bunker
-Teleport to Hopeville Silo Bunker Entrance
+Tunnel to Hopeville Silo Bunker Entrance
 Walk to Pass to Canyon Wreckage
 Teleport to Canyon Wreckage
 WAlk to Jean Skydiving
