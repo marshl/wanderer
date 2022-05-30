@@ -3,5 +3,180 @@
   "image_file": "Big_Empty.webp",
   "speed_multiplier": 1.0,
   "locations": [
+    {
+      "name": "Big MT east tunnel",
+      "x": 929,
+      "y": 553
+    },
+    {
+      "name": "Big MT north tunnel",
+      "x": 701,
+      "y": 140
+    },
+    {
+      "name": "Big MT west tunnel",
+      "x": 182,
+      "y": 444
+    },
+    {
+      "name": "Construction site",
+      "x": 257,
+      "y": 199
+    },
+    {
+      "name": "Elijah's Watch",
+      "x": 751,
+      "y": 214
+    },
+    {
+      "name": "Forbidden Zone dome entrance",
+      "x": 643,
+      "y": 152
+    },
+    {
+      "name": "Hazmat testing ground",
+      "x": 729,
+      "y": 517
+    },
+    {
+      "name": "Higgs Village",
+      "x": 621,
+      "y": 865
+    },
+    {
+      "name": "Little Yangtze",
+      "x": 302,
+      "y": 344
+    },
+    {
+      "name": "Loading station",
+      "x": 751,
+      "y": 300
+    },
+    {
+      "name": "Magnetohydraulics complex",
+      "x": 583,
+      "y": 272
+    },
+    {
+      "name": "Mysterious cave",
+      "x": 721,
+      "y": 151
+    },
+    {
+      "name": "Saturnite alloy research facility",
+      "x": 303,
+      "y": 670
+    },
+    {
+      "name": "Securitron de-construction plant",
+      "x": 850,
+      "y": 368
+    },
+    {
+      "name": "Signal Hills transmitter",
+      "x": 460,
+      "y": 245
+    },
+    {
+      "name": "The Cuckoo's Nest",
+      "x": 404,
+      "y": 828
+    },
+    {
+      "name": "The Sink",
+      "x": 549,
+      "y": 575
+    },
+    {
+      "name": "The Think Tank",
+      "x": 550,
+      "y": 511
+    },
+    {
+      "name": "Ulysses' Point",
+      "x": 583,
+      "y": 575
+    },
+    {
+      "name": "Waste disintegration platform",
+      "x": 742,
+      "y": 343
+    },
+    {
+      "name": "X-2 transmitter antenna array",
+      "x": 520,
+      "y": 912
+    },
+    {
+      "name": "X-7a \"Left Field\" artillery launch",
+      "x": 238,
+      "y": 812
+    },
+    {
+      "name": "X-7b \"Boom Town\" target zone",
+      "x": 768,
+      "y": 678
+    },
+    {
+      "name": "X-8 research center",
+      "x": 874,
+      "y": 649
+    },
+    {
+      "name": "X-12 research center",
+      "x": 482,
+      "y": 610
+    },
+    {
+      "name": "X-13 research facility",
+      "x": 95,
+      "y": 528
+    },
+    {
+      "name": "X-17 meteorological station",
+      "x": 366,
+      "y": 211
+    },
+    {
+      "name": "X-22 botanical garden",
+      "x": 482,
+      "y": 198
+    },
+    {
+      "name": "X-66 Hexcrete archipelago",
+      "x": 175,
+      "y": 569
+    },
+    {
+      "name": "Y-0 research center",
+      "x": 445,
+      "y": 143
+    },
+    {
+      "name": "Y-17 medical facility",
+      "x": 760,
+      "y": 793
+    },
+    {
+      "name": "Z-9 Crotalus DNA preservation lab",
+      "x": 773,
+      "y": 586
+    },
+    {
+      "name": "Z-14 Pepsinae DNA splicing lab",
+      "x": 874,
+      "y": 474
+    },
+    {
+      "name": "Z-38 lightwave dynamics research",
+      "x": 243,
+      "y": 593
+    },
+    {
+      "name": "Z-43 innovative toxins plant",
+      "x": 139,
+      "y": 671
+    }
   ]
 }

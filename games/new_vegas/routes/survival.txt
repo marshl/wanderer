@@ -94,7 +94,7 @@ Walk to New Vegas Medical Clinic
 Walk to Crimson Caravan Company
 WAlk to NCR Sharecropper Farms
 Walk to Aerotech Office Park
-Walk to Cassidy's Caravan Wreckage
+Walk to Cassidy Caravans Wreckage
 Walk to Allied Technologies Offices
 Walk to Ant Mound
 Walk to Hunter's Farm
@@ -264,7 +264,7 @@ Walk to Aerotech Office Park
 Walk to Follower's Outpost
 Walk to El Dorado Dry Lake
 Walk to Novac
-Walk to Highway 953 Viper Encampment
+Walk to Highway 95 Viper's Encampment
 Walk to Wrecked Highwayman
 Walk to Snyder Prospector Camp
 Walk to Raided Farmstead
@@ -300,11 +300,11 @@ Walk to Freeside's East Gate
 Walk to Gulp n' Grub Rest Stop
 WAlk to Follower's Outpost
 Walk to 188 Trading Post
-Walk to Cassidy's Caravan Wreckage
+Walk to Cassidy Caravans Wreckage
 Walk to El Ray Motel
-Walk to Monte Carlos Suites
+Walk to Monte Carlo Suites
 Walk to Vault 22
-Walk to Monte Carlos Suites
+Walk to Monte Carlo Suites
 Walk to Camp McCarran
 Walk to NCR Sharecropper Farms
 Walk to East Pump Station
@@ -347,3 +347,480 @@ Walk to Scavenger Platform
 Walk to Callville Bay
 Walk to Bitter Springs Recreation Area
 Walk to Bitter Springs
+Walk to Coyote Tail Ridge
+Walk to Bitter Springs Recreation Area
+Walk to Bitter Springs
+Walk to Brotherhood of Steel Safehouse
+Walk to Nellis Air Force Base
+Walk to Field's Shack
+Walk to Crimson Caravan Company
+Walk to Gun Runners
+Walk to Freeside's East Gate
+Walk to The Strip North Gate
+Walk to The Lucky 38
+Walk to The Strip North Gate
+Walk to Freeside's East Gate
+Walk to NCR Sharecropper Farms
+Walk to Aerotech Office Park
+Walk to Follower's Outpost
+Walk to El Dorado Dry Lake
+Walk to Novac
+Walk to Nelson
+Walk to Abandoned BoS Bunker
+Teleport to Villa
+Walk to Villa Police Station
+Walk to Villa
+Walk to Residential District
+Walk to Villa
+Walk to Medical District
+Walk to Villa
+Walk to Salida Del Sol
+Walk to Salida Del Sol North
+Walk to Campanas Del Sol
+Walk to Salida Del Sol North
+Walk to Salida Del Sol Courtyard
+WAlk to Salida Del Sol South
+Walk to Villa
+Walk to Medical District
+Walk to Villa
+Walk to Puesta Del Sol North
+Walk to Puesta Del Sol Switching Station
+Walk to Puesta Del Sol North
+Walk to Service Route
+Walk to Puesta Del Sol South
+Walk to Villa
+Walk to Sierra Madre Casino
+Walk to Villa
+Teleport to Abandoned BoS Bunker
+Walk to Nelson
+Walk to Novac
+Walk to El Dorado Dry Lake
+Walk to 188 Trading Post
+Walk to Boulder City
+Walk to Ranger Station Delta
+Walk to Camp Forlorn Hope
+Walk to Abandoned BoS Bunker
+WAlk to Cliffside Prospector Camp
+Walk to Cottonwood Cove
+Boat to The Fort
+Boat to Cottonwood Cove
+Walk to Coyote Mines
+Walk to Searchlight North Gold Mine
+Walk to Camp Searchlight
+Walk to Broc Flower Cave
+Walk to Wolfhorn Ranch
+Walk to Nipton
+Walk to Hidden Supply Cave
+WAlk to Prospector's Den
+Walk to Primm
+Walk to Nevada Highway Patrol Station
+Walk to Mojave Outpost
+Walk to Nipton Road Pit Stop
+Walk to Nipton
+Walk to Raided Farmstead
+Walk to Camp Searchlight
+Walk to Searchlight Airport
+WAlk to Searchlight East Gold Mine
+Walk to Fire Root Cavern
+Tunnel to Cottonwood Crater
+Walk to Smith Mesa Prospector Camp
+Walk to Blue Paradise Vacation Rentals
+Walk to Blue Paradise Mirelurk Nest
+Walk to Cottonwood Cove
+Walk to Cottonwood Cove Overlook
+Walk to Sniper's Nest
+Walk to Ranger Station Echo
+Walk to Searchlight North Gold Mine
+Walk to Camp Searchlight
+Walk to Legion Raid Camp
+Walk to Highway 95 Viper's Encampment
+Walk to Clark Field
+Walk to Techatticup Mine
+Walk to Lucky Jim Mine
+Walk to Camp Forlorn Hope
+Walk to Ranger Station Delta
+Walk to Boulder City
+Walk to Ranger Station Alpha
+Walk to Mountain Shadows Campground
+Walk to Cassidy Caravans Wreckage
+WAlk to Allied Technologies Offices
+Walk to Samson Rock Crushing Plant
+Walk to Poseidon Gas Station
+Walk to South Vegas Ruins West Entrance
+Walk to Sunset Sarsaparilla Headquarters
+Walk to Griffin Wares Sacked Caravan
+Walk to Horowitz Farmstead
+Walk to Brooks Tumbleweed Ranch
+Walk to Ruby Hill Mine
+Walk to Ranger Station Foxtrot
+Walk to Follower's Safehouse
+Walk to Griffin Wares Sacked Caravan
+Walk to Freeside's North Gate
+Walk to Crimson Caravan Company
+Walk to Gun Runners
+Walk to Freeside's East Gate
+Sewer to The Thorn
+Walk to Sunset Sarsaparilla Headquarters
+Walk to South Cistern
+Walk to H&H Tools Factory
+Walk to Crimson Caravan Company
+Walk to Freeside's North Gate
+Walk to Gun Runners
+Walk to NCR Sharecropper Farms
+Walk to Camp MCCarran
+Walk to NCR Sharecropper Farms
+Walk to Gun Runners
+Walk to NCR Sharecropper Farms
+Walk to Camp McCarran
+Walk to NCR Sharecropper Farms
+WAlk to Crimson Caravan Company
+Walk to NCR Sharecropper Farms
+Walk to Camp McCarran
+WAlk to Westside South Entrance
+Sewer to Camp McCarran
+Walk to Samson Rock Crushing Plant
+Walk to Whittaker Farmstead
+Walk to Great Khan Encampment
+Walk to Makeshift Great Khan Camp
+Walk to Tribal Village
+Walk to Goodsprings Cemetery
+WAlk to Goodsprings
+Walk to Goodsprings Source
+Walk to California Sunset Drive-in
+Walk to Mojave Outpost
+Walk to Ivanpah Race Track
+Walk to Jack Rabbit Springs
+Walk to Primm Pass
+Walk to Harper's Shack
+WAlk to Dead Wind Cavern
+Walk to Novac
+Walk to El Dorado Gas & Service
+Walk to 188 Trading Post
+Walk to Ranger Morales Corpse
+Walk to ALlied Technologies Offices
+Walk to Camp McCarran
+Walk to NCR Sharecropper Farms
+Walk to Gun Runners
+Walk to Freeside's East Gate
+Walk to Freeside's North Gate
+Walk to Crimson Caravan Company
+Walk to Gun RUnners
+Walk to Freeside's East Gate
+walk to THe Strip North Gate
+Walk to The Strip
+Walk to The Strip North Gate
+Walk to Freeside's North Gate
+Walk to Mole Rat Ranch
+Walk to Nellis Air Force Base
+WAlk to Nellis Hangars
+Walk to Nellis Array
+Walk to Nellis Hangars
+WAlk to Nellis Air Force Base
+WAlk to Cap Counterfeiting Shack
+Walk to Callville Bay
+Swim to Crashed B29
+Swim to Ranger Station Bravo
+Walk to The Devil's Throat
+Walk to Camp Guardian
+Swim to Lake Mead Cave
+Swim to Scavenger Platform
+Swim to Fisherman's Pride Shack
+Walk to Cap Counterfeiting Shack
+Walk to Nellis Air Force Base
+Walk to Nellis Hangars
+Walk to Nellis Air Force Base
+Walk to Mole Rat Ranch
+Walk to Crimson Caravan Company
+Walk to Gun RUnners
+WAlk to Nellis Air Force Base
+Walk to Nellis Hangars
+Walk to Nellis AIr Force Base
+Walk to Gun Runners
+Walk to NCR Sharecropper Farms
+Walk to Aerotech Office Park
+Walk to Deserted Shack
+WAlk to El Dorado Gas & Service
+Walk to Novac
+WAlk to Helios One
+WAlk to El Dorado Substation
+Walk to Black Mountain
+Walk to El Dorado Substation
+WAlk to Helios One
+Walk to Novac
+Walk to Ranger station Echo
+WAlk to Cottonwood Cove
+Boat to The Fort
+Boat to Cottonwood Cove
+Walk to Ranger Station Echo
+Walk to Camp Forlorn Hope
+WAlk to Ranger Station Delta
+Walk to Hoover Dam
+WAlk to Ranger Station Alpha
+Walk to Lake Las Vegas
+Walk to Camp Golf
+Walk to Cap Counterfeiting Shack
+WAlk to Bitter Springs
+Walk to Coyote Tail Ridge
+Walk to Gypsum Train Yard
+Walk to East Pump Station
+Walk to Freeside's East Gate
+Sewer to Westside West Entrance
+Walk to Griffin Wares Sacked Caravan
+Walk to Ruby HIll Mine
+Walk to Silver Peak Mine
+Walk to Jacobstown
+Walk to Charleston Cave
+Walk to Jacobstown
+Walk to Remnants Bunker
+Walk to Ranger Station Foxtrot
+Walk to Red Rock Drug Lab
+Walk to Red Rock Canyon
+Walk to Red ROck Drug Lab
+Walk to Red ROck Canyon
+Walk to Spring Mt. Ranch State Park
+Walk to Bonnie Springs
+Walk to Great Khan Encampment
+Walk to Vault 19
+Walk to Junction 15 Railway Station
+Walk to Sloan
+Walk to Primm
+Walk to Mesquite Mountains Crater
+Walk to Nipton Road Pit Stop
+WAlk to Nipton
+Walk to Raided Farmstead
+Walk to Camp Searchlight
+Walk to Cottonwood Cove
+Walk to Caesar's Legion Safehouse
+Walk to Legion Raid Camp
+WAlk to Clark Field
+Walk to Camp Forlorn Hope
+Walk to Boulder Beach Campground
+Walk to Camp Golf
+Walk to Allied Technologies Offices
+Walk to Camp McCarran
+Monorail to the Strip
+Walk to The Strip North Gate
+Walk to Freeside's North Gate
+Walk to North Vegas SQuare
+walk to New Vegas Medical Clinic
+Walk to North Vegas Square
+Walk to New Vegas Medical Clinic
+Walk to North Vegas Square
+Walk to Vault 22
+Walk to The Thorn
+Walk to Monte Carlo Suites
+Walk to Camp McCarran
+Walk to Cannibal Johnson's Cave
+Walk to Camp Golf
+Walk to Boulder Beach Campground
+Walk to Hoover Dam
+Walk to Cazador Nest
+Walk to Camp Forlorn Hope
+Walk to Abandoned BoS Bunker
+Walk to Novac
+Walk to Ranger Station Charlie
+Walk to Nipton
+Walk to Mojave Drive-in
+Teleport to The Sink
+Walk to Z-9 Crotalus DNA Preservation Lab
+Walk to Hazmat Testing Ground
+Walk to Little Yangtze
+Walk to Construction Site
+WAlk to X-17 Meteorological Station
+Walk to X-22 Botanical Garden
+Walk to Y-0 Research Center
+Walk to Forbidden Zone Dome Entrance
+WAlk to Big MT north Tunnel
+Walk to Signal Hills Transmitter
+Walk to X-22 Botanical Garden
+Walk to Magnetohydraulics Complex
+Walk to The Sink
+Walk to X-7b "Boom Town" Target Zone
+Walk to X-8 Research Center
+Walk to Y-17 Medical Facility
+Walk to Higgs Village
+Walk to The Sink
+Walk to X-2 transmitter antenna array
+Walk to The Cuckoo's Nest
+Walk to X-7a "Left Field" Artillery Launch
+Walk to Z-38 Lightwave Dynamics Research
+Walk to X-13 Research Facility
+Teleport to The Sink
+Walk to Hazmat Testing Ground
+Walk to Z-14 Pepsinae DNA Splicing Lab
+Walk to Big MT East Tunnel
+WAlk to Securitron De-construction Plant
+Walk to Waste Disintegration Platform
+Walk to Loading Station
+Walk to Mysterious Cave
+Walk to Big MT north Tunnel
+Walk to Forbidden Zone Dome Entrance
+Walk to Securitron De-construction Plant
+Walk to Elijah's Watch
+Teleport to The Sink
+Walk to X-12 Research Center
+Walk to Saturnite Alloy Research Facility
+Walk to Ulysses' Point
+Walk to X-8 Research Center
+Walk to The Sink
+Walk to Z-43 Innovative Toxins Plant
+Walk to X-66 Hexcrete Archipelago
+Walk to X-13 Research Facility
+Walk to Saturnite Alloy Research Facility
+Walk to X-12 Research center
+Walk to Little Yangtze
+Walk to Construction Site
+Teleport to The Sink
+Walk to Securitron De-construction Plant
+Teleport to The Sink
+Teleport to Mojave Drive-In
+Walk to Caesar's Legion Safehouse
+Walk to Camp Searchlight
+Walk to Cottonwood Cove
+Teleport to The Sink
+Teleport to Mojave Drive-in
+Walk to Primm
+Walk to Goodsprings
+Walk to Goodsprings Cemetery
+Walk to Spring Mt Ranch State Park
+Walk to Red Rock Canyon
+Walk to Red ROck Drug Lab
+Walk to Red Rock Canyon
+Walk to Chance's Map
+Walk to Poseidon Gas Station
+Walk to The Thorn
+Sewer to Crimson Caravan Company
+Walk to Camp Golf
+Walk to Mountain Shadows Campground
+Walk to Boulder City
+Walk to Hoover Dam
+Walk to Camp Forlorn Hope
+Walk to Nelson
+Walk to Bootjack Cavern
+Walk to Highway 95 Viper's Encampment
+Walk to Novac
+Walk to Scorpion Gulch
+Walk to Hidden Valley
+Walk to Quarry Junction
+Walk to Vault 19
+Walk to Red Rock Canyon
+Walk to Red Rock Drug Lab
+Walk to Nopah Cave
+Walk to Vault 3
+Walk to Red Rock Canyon
+Walk to Red Rock Drug Lab
+Walk to Red Rock Canyon
+Walk to The Thorn
+Walk to Westside West Entrance
+Walk to Mole Rat Ranch
+Walk to Brotherhood of Steel Safehouse
+Walk to Bloodborne Cave
+Walk to Freeside's East Gate
+Walk to Freeside's North Gate
+Walk to The Thorn
+Walk to Follower's Safehouse
+Walk to Ruby HIll Mine
+Walk to Jacobstown
+Walk to Red ROck Canyon
+WAlk to Monte Carlo Suites
+Walk to The Thorn
+Walk to Sunset Sarsaparilla Headquarters
+Walk to Samson ROck Crushing Plant
+Walk to Whittaker Farmstead
+Walk to Great Khan Encampment
+Walk to Quarry Junction
+Walk to Hunter's Farm
+Walk to West Pump Station
+Walk to The Thorn
+Walk to Camp McCarran
+Walk to Ranger Morales Corpse
+Walk to 188 Trading Post
+Walk to Novac
+WAlk to Ranger Station Charlie
+Walk to Harper's Shack
+Walk to Primm Pass
+Walk to Powder Ganger Camp South
+Walk to Primm
+WAlk to California Sunset Drive-in
+Walk to Canyon Wreckage
+Teleport to Pass to Canyon Wreckage
+Walk to Hopeville Silo Bunker ENtrance
+Tunnel to Hopeville Missile Silo Bunker
+Walk to Hopeville Missile Base - Loading Station
+Walk to Hopeville Missile Base - West ENtrance
+Walk to Marked Men Guard Outpost
+Walk to Marked Men Supply Outpost
+Walk to Hopeville Missile Base - East Entrance
+Walk to Hopeville Missile Base Headquarters
+Walk to Marked Men Camp
+Walk to Hopeville Missile Base - West Entrance
+WAlk to Marked Men Supply Outpost
+Walk to Collapsed Overpass Tunnel Entrance
+Tunnel to High Road Entrance
+Walk to The Crow's Nest
+Walk to Ruined Highway Interchange
+Walk to Junction 7 Rest Stop
+Walk to Ashton Silo Control Station
+Tunnel to Sunstone Tower Roof
+Walk to Third Street Municipal Building
+Walk to Cave of the Abaddon
+Tunnel to Boxwood Hotel Roof
+Walk to Waste Disposal Station
+Walk to wastewater Treatment Plant
+Walk to Ulysses' Temple
+Teleport to Canyon Wreckage
+Walk to Path to the Courier's Mile
+Teleport to The Courier's Mile
+Teleport to Path to the Courier's mile
+Walk to Hopeville Missile silo Bunker
+Teleport to Hopeville Silo Bunker Entrance
+Walk to Pass to Canyon Wreckage
+Teleport to Canyon Wreckage
+WAlk to Jean Skydiving
+Walk to Sloan
+Walk to Camp McCarran
+Walk to Aerotech Office Park
+Walk to Freeside's East Gate
+Walk to The Strip North Gate
+Walk to Freeside's East Gate
+Walk to East Pump Station
+Walk to Lake Las Vegas
+Walk to BOulder Beach Campground
+Walk to Boulder City
+wAlk to Hoover Dam
+Walk to Boulder City
+Walk to 188 Trading Post
+Walk to Gulp n' Grub Rest Stop
+Walk to Freeside';s East Gate
+Walk to The Strip North Gate
+Walk to Freeside's East Gate
+Walk to East Pump station
+Walk to Lake Las Vegas
+Walk to Boulder Beach Campground
+Walk to Boulder City
+Walk to Hoover Dam
+Walk to El Dorado Gas & Service
+Walk to Helios One
+Walk to Scorpion Gulch
+Walk to Hidden Valley
+Walk to Scorpion Gulch
+Walk to Helios One
+Walk to HOover Dam
+Walk to Boulder City
+Walk to Cazador Nest
+Walk to Novac
+Walk to El Dorado Dry Lake
+Walk to 188 Trading Post
+Walk to Cannibal Johnson's Cave
+Walk to NCR Sharecropper Farms
+Sewer to Westside West Entrance
+Walk to Jacobstown
+Walk to REmnants Bunker
+Walk to Red Rock Canyon
+Walk to Nopah Cave
+Walk to The Basincreek Building
+Walk to Ant Mound
+Walk to Follower's Outpost
+Walk to Boulder City
+Walk to Hoover Dam
+Walk to Legate's Camp

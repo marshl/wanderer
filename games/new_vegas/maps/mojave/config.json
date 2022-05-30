@@ -289,7 +289,7 @@
       "y": 340
     },
     {
-      "name": "Cassidy's Caravan Wreckage",
+      "name": "Cassidy Caravans Wreckage",
       "x": 560,
       "y": 406
     },
@@ -539,7 +539,7 @@
       "y": 288
     },
     {
-      "name": "Monte Carlos Suites",
+      "name": "Monte Carlo Suites",
       "x": 449,
       "y": 269
     },
@@ -597,6 +597,386 @@
       "name": "Bitter Springs",
       "x": 810,
       "y": 290
+    },
+    {
+      "name": "Coyote Tail Ridge",
+      "x": 792,
+      "y": 320
+    },
+    {
+      "name": "Brotherhood of Steel Safehouse",
+      "x": 716,
+      "y": 266
+    },
+    {
+      "name": "The Lucky 38",
+      "x": 509,
+      "y": 270
+    },
+    {
+      "name": "Abandoned BoS Bunker",
+      "x": 786,
+      "y": 656
+    },
+    {
+      "name": "Ranger Station Delta",
+      "x": 777,
+      "y": 574
+    },
+    {
+      "name": "Cliffside Prospector Camp",
+      "x": 801,
+      "y": 805
+    },
+    {
+      "name": "Cottonwood Cove",
+      "x": 777,
+      "y": 875
+    },
+    {
+      "name": "The Fort",
+      "x": 867,
+      "y": 439
+    },
+    {
+      "name": "Coyote Mines",
+      "x": 703,
+      "y": 847
+    },
+    {
+      "name": "Searchlight North Gold Mine",
+      "x": 690,
+      "y": 866
+    },
+    {
+      "name": "Camp Searchlight",
+      "x": 658,
+      "y": 898
+    },
+    {
+      "name": "Broc Flower Cave",
+      "x": 635,
+      "y": 823
+    },
+    {
+      "name": "Searchlight Airport",
+      "x": 679,
+      "y": 967
+    },
+    {
+      "name": "Searchlight East Gold Mine",
+      "x": 698,
+      "y": 915
+    },
+    {
+      "name": "Fire Root Cavern",
+      "x": 732,
+      "y": 949
+    },
+    {
+      "name": "Cottonwood Crater",
+      "x": 748,
+      "y": 972
+    },
+    {
+      "name": "Smith Mesa Prospector camp",
+      "x": 766,
+      "y": 927
+    },
+    {
+      "name": "Blue Paradise Vacation Rentals",
+      "x": 821,
+      "y": 937
+    },
+    {
+      "name": "Blue Paradise Mirelurk Nest",
+      "x": 896,
+      "y": 942
+    },
+    {
+      "name": "Cottonwood Cove Overlook",
+      "x": 775,
+      "y": 906
+    },
+    {
+      "name": "Sniper's Nest",
+      "x": 735,
+      "y": 877
+    },
+    {
+      "name": "Ranger Station Echo",
+      "x": 746,
+      "y": 817
+    },
+    {
+      "name": "Highway 95 Viper's Encampment",
+      "x": 638,
+      "y": 748
+    },
+    {
+      "name": "Clark Field",
+      "x": 676,
+      "y": 744
+    },
+    {
+      "name": "Techatticup Mine",
+      "x": 772,
+      "y": 741
+    },
+    {
+      "name": "Lucky Jim Mine",
+      "x": 750,
+      "y": 785
+    },
+    {
+      "name": "Ranger Station Alpha",
+      "x": 725,
+      "y": 448
+    },
+    {
+      "name": "Mountain Shadows Campground",
+      "x": 685,
+      "y": 432
+    },
+    {
+      "name": "Poseidon Gas Station",
+      "x": 419,
+      "y": 362
+    },
+    {
+      "name": "South Vegas Ruins West Entrance",
+      "x": 432,
+      "y": 346
+    },
+    {
+      "name": "Sunset Sarsaparilla Headquarters",
+      "x": 450,
+      "y": 307
+    },
+    {
+      "name": "Griffin Wares Sacked Caravan",
+      "x": 393,
+      "y": 180
+    },
+    {
+      "name": "Horowitz Farmstead",
+      "x": 420,
+      "y": 168
+    },
+    {
+      "name": "Brooks Tumbleweed Ranch",
+      "x": 376,
+      "y": 124
+    },
+    {
+      "name": "Ruby Hill Mine",
+      "x": 314,
+      "y": 171
+    },
+    {
+      "name": "Ranger Station Foxtrot",
+      "x": 352,
+      "y": 283
+    },
+    {
+      "name": "Follower's Safehouse",
+      "x": 344,
+      "y": 194
+    },
+    {
+      "name": "The Thorn",
+      "x": 451,
+      "y": 242
+    },
+    {
+      "name": "South Cistern",
+      "x": 492,
+      "y": 240
+    },
+    {
+      "name": "H&H Tools Factory",
+      "x": 507,
+      "y": 212
+    },
+    {
+      "name": "Westside South Entrance",
+      "x": 451,
+      "y": 233
+    },
+    {
+      "name": "Whittaker Farmstead",
+      "x": 458,
+      "y": 456
+    },
+    {
+      "name": "Makeshift Great Khan Camp",
+      "x": 375,
+      "y": 503
+    },
+    {
+      "name": "Tribal Village",
+      "x": 332,
+      "y": 484
+    },
+    {
+      "name": "Dead Wind Cavern",
+      "x": 532,
+      "y": 775
+    },
+    {
+      "name": "Ranger Morales Corpse",
+      "x": 597,
+      "y": 448
+    },
+    {
+      "name": "Nellis Hangars",
+      "x": 686,
+      "y": 109
+    },
+    {
+      "name": "Nellis Array",
+      "x": 726,
+      "y": 103
+    },
+    {
+      "name": "Cap Counterfeiting Shack",
+      "x": 747,
+      "y": 332
+    },
+    {
+      "name": "Crashed B29",
+      "x": 822,
+      "y": 393
+    },
+    {
+      "name": "Ranger Station Bravo",
+      "x": 844,
+      "y": 293
+    },
+    {
+      "name": "The Devil's Throat",
+      "x": 902,
+      "y": 266
+    },
+    {
+      "name": "Camp Guardian",
+      "x": 872,
+      "y": 355
+    },
+    {
+      "name": "Lake Mead Cave",
+      "x": 830,
+      "y": 400
+    },
+    {
+      "name": "Fisherman's Pride Shack",
+      "x": 740,
+      "y": 375
+    },
+    {
+      "name": "Lake Las Vegas",
+      "x": 666,
+      "y": 404
+    },
+    {
+      "name": "Camp Golf",
+      "x": 672,
+      "y": 377
+    },
+    {
+      "name": "Gypsum Train Yard",
+      "x": 667,
+      "y": 306
+    },
+    {
+      "name": "Westside West Entrance",
+      "x": 435,
+      "y": 215
+    },
+    {
+      "name": "Silver Peak Mine",
+      "x": 301,
+      "y": 228
+    },
+    {
+      "name": "Jacobstown",
+      "x": 221,
+      "y": 272
+    },
+    {
+      "name": "Charleston Cave",
+      "x": 202,
+      "y": 222
+    },
+    {
+      "name": "Remnants Bunker",
+      "x": 322,
+      "y": 275
+    },
+    {
+      "name": "Red Rock Drug Lab",
+      "x": 319,
+      "y": 329
+    },
+    {
+      "name": "Red Rock Canyon",
+      "x": 323,
+      "y": 365
+    },
+    {
+      "name": "Spring Mt. Ranch State Park",
+      "x": 335,
+      "y": 432
+    },
+    {
+      "name": "Bonnie Springs",
+      "x": 381,
+      "y": 456
+    },
+    {
+      "name": "Vault 19",
+      "x": 429,
+      "y": 461
+    },
+    {
+      "name": "Cannibal Johnson's Cave",
+      "x": 632,
+      "y": 338
+    },
+    {
+      "name": "Cazador Nest",
+      "x": 740,
+      "y": 562
+    },
+    {
+      "name": "Chance's Map",
+      "x": 387,
+      "y": 337
+    },
+    {
+      "name": "Bootjack Cavern",
+      "x": 713,
+      "y": 784
+    },
+    {
+      "name": "Nopah Cave",
+      "x": 406,
+      "y": 398
+    },
+    {
+      "name": "Bloodborne Cave",
+      "x": 760,
+      "y": 263
+    },
+    {
+      "name": "Canyon Wreckage",
+      "x": 327,
+      "y": 742
+    },
+    {
+      "name": "Legate's Camp",
+      "x": 915,
+      "y": 525
     }
   ]
 }

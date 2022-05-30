@@ -6,4 +6,3 @@ if __name__ == "__main__":
     routes = current_game.get_available_routes()
     route_movements = current_game.parse_route_file("survival.txt")
     current_game.render_route("survival.txt", "output")
-    print(route_movements)

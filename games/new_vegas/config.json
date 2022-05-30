@@ -13,7 +13,17 @@
       "colour": "0x0000ffff"
     },
     {
+      "name": "swim",
+      "pixels_per_second": 200,
+      "colour": "0x0000ffff"
+    },
+    {
       "name": "sewer",
+      "pixels_per_second": 200,
+      "colour": "0x00ff00ff"
+    },
+    {
+      "name": "tunnel",
       "pixels_per_second": 200,
       "colour": "0x00ff00ff"
     },

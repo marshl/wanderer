@@ -185,7 +185,7 @@ class Game:
 
         movements = self.parse_route_file(route_name)
         index = 0
-        extension = "jpeg"
+        extension = "webp"
         for movement in movements:
             if movement.start.game_map != movement.end.game_map:
                 # TODO: Some kind of map transition
@@ -321,7 +321,7 @@ class GameMap:
         locations = [
             location
             for location in self.location_map.values()
-            if fuzz.ratio(location_name, location.name) >= 75
+            if fuzz.ratio(location_name, location.name) >= 55
         ]
         return locations
 

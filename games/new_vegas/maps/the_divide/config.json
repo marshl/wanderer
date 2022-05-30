@@ -2,5 +2,161 @@
   "name": "The Divide",
   "image_file": "Wasteland_divide_1024_no_map.webp",
   "speed_multiplier": 1.0,
-  "locations": []
+  "locations": [
+    {
+      "name": "Ashton missile silo",
+      "x": 703,
+      "y": 466
+    },
+    {
+      "name": "Ashton silo control station",
+      "x": 700,
+      "y": 500
+    },
+    {
+      "name": "Boxwood Hotel roof",
+      "x": 309,
+      "y": 313
+    },
+    {
+      "name": "Cave of the Abaddon",
+      "x": 556,
+      "y": 285
+    },
+    {
+      "name": "Collapsed overpass tunnel entrance",
+      "x": 314,
+      "y": 522
+    },
+    {
+      "name": "High Road entrance",
+      "x": 370,
+      "y": 537
+    },
+    {
+      "name": "Hopeville armory",
+      "x": 202,
+      "y": 532
+    },
+    {
+      "name": "Hopeville men's barracks",
+      "x": 211,
+      "y": 571
+    },
+    {
+      "name": "Hopeville Missile Base - Loading station",
+      "x": 189,
+      "y": 593
+    },
+    {
+      "name": "Hopeville Missile Base Headquarters",
+      "x": 190,
+      "y": 499
+    },
+    {
+      "name": "Hopeville Missile Base - East Entrance",
+      "x": 241,
+      "y": 577
+    },
+    {
+      "name": "Hopeville Missile Base - West Entrance",
+      "x": 162,
+      "y": 536
+    },
+    {
+      "name": "Hopeville missile silo bunker",
+      "x": 124,
+      "y": 561
+    },
+    {
+      "name": "Hopeville silo bunker entrance",
+      "x": 895,
+      "y": 603
+    },
+    {
+      "name": "Hopeville women's barracks",
+      "x": 153,
+      "y": 546
+    },
+    {
+      "name": "Junction 7 rest stop",
+      "x": 557,
+      "y": 614
+    },
+    {
+      "name": "Marked men base",
+      "x": 276,
+      "y": 511
+    },
+    {
+      "name": "Marked men camp",
+      "x": 220,
+      "y": 510
+    },
+    {
+      "name": "Marked men guard outpost",
+      "x": 257,
+      "y": 599
+    },
+    {
+      "name": "Marked men supply outpost",
+      "x": 297,
+      "y": 581
+    },
+    {
+      "name": "Municipal sewers",
+      "x": 522,
+      "y": 379
+    },
+    {
+      "name": "Pass to canyon wreckage",
+      "x": 992,
+      "y": 682
+    },
+    {
+      "name": "Path to the Courier's Mile",
+      "x": 108,
+      "y": 585
+    },
+    {
+      "name": "Ruined highway interchange",
+      "x": 538,
+      "y": 521
+    },
+    {
+      "name": "Sunstone Tower roof",
+      "x": 655,
+      "y": 330
+    },
+    {
+      "name": "The Courier's Mile",
+      "x": 665,
+      "y": 164
+    },
+    {
+      "name": "The Crow's Nest",
+      "x": 477,
+      "y": 477
+    },
+    {
+      "name": "Third Street Municipal Building",
+      "x": 573,
+      "y": 377
+    },
+    {
+      "name": "Ulysses' Temple",
+      "x": 218,
+      "y": 352
+    },
+    {
+      "name": "Waste disposal station",
+      "x": 287,
+      "y": 324
+    },
+    {
+      "name": "Wastewater treatment plant",
+      "x": 329,
+      "y": 381
+    }
+  ]
 }

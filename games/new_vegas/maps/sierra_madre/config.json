@@ -2,5 +2,86 @@
   "name": "Sierra Madre",
   "image_file": "Sierra_Madre_Map.png",
   "speed_multiplier": 1.0,
-  "locations": []
+  "locations": [
+    {
+      "name": "Medical district",
+      "x": 430,
+      "y": 475
+    },
+    {
+      "name": "Villa clinic",
+      "x": 418,
+      "y": 373
+    },
+    {
+      "name": "Puesta del Sol",
+      "x": 273,
+      "y": 501
+    },
+    {
+      "name": "Puesta del Sol switching station",
+      "x": 117,
+      "y": 396
+    },
+    {
+      "name": "Puesta del Sol North",
+      "x": 131,
+      "y": 398
+    },
+    {
+      "name": "Service route",
+      "x": 154,
+      "y": 607
+    },
+    {
+      "name": "Residential District",
+      "x": 650,
+      "y": 588
+    },
+    {
+      "name": "Salida del Sol",
+      "x": 764,
+      "y": 563
+    },
+    {
+      "name": "Salida del Sol South",
+      "x": 764,
+      "y": 563
+    },
+    {
+      "name": "Campanas del Sol",
+      "x": 912,
+      "y": 275
+    },
+    {
+      "name": "Salida del Sol courtyard",
+      "x": 823,
+      "y": 559
+    },
+    {
+      "name": "Villa",
+      "x": 499,
+      "y": 557
+    },
+    {
+      "name": "Villa police station",
+      "x": 191,
+      "y": 713
+    },
+    {
+      "name": "Salida Del Sol North",
+      "x": 878,
+      "y": 321
+    },
+    {
+      "name": "Puesta del Sol South",
+      "x": 243,
+      "y": 578
+    },
+    {
+      "name": "Sierra Madre Casino",
+      "x": 497,
+      "y": 497
+    }
+  ]
 }
