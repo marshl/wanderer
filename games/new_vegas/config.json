@@ -21,6 +21,11 @@
       "name": "teleport",
       "pixels_per_second": 800,
       "colour": "#ffffffff"
+    },
+    {
+      "name": "monorail",
+      "pixels_per_second": 200,
+      "colour": "#00ff00ff"
     }
   ]
 }

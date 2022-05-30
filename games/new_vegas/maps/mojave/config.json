@@ -522,6 +522,81 @@
       "name": "Old Nuclear Test Site",
       "x": 548,
       "y": 969
+    },
+    {
+      "name": "Quarry Junction",
+      "x": 449,
+      "y": 528
+    },
+    {
+      "name": "Great Khan Encampment",
+      "x": 408,
+      "y": 520
+    },
+    {
+      "name": "The Strip",
+      "x": 499,
+      "y": 288
+    },
+    {
+      "name": "Monte Carlos Suites",
+      "x": 449,
+      "y": 269
+    },
+    {
+      "name": "Vault 22",
+      "x": 367,
+      "y": 231
+    },
+    {
+      "name": "Vault 34",
+      "x": 640,
+      "y": 317
+    },
+    {
+      "name": "Deserted Shack",
+      "x": 655,
+      "y": 444
+    },
+    {
+      "name": "El Dorado Substation",
+      "x": 617,
+      "y": 536
+    },
+    {
+      "name": "Black Rock Cave",
+      "x": 605,
+      "y": 583
+    },
+    {
+      "name": "Samson Rock Crushing Plant",
+      "x": 468,
+      "y": 418
+    },
+    {
+      "name": "Boulder Beach Campground",
+      "x": 746,
+      "y": 461
+    },
+    {
+      "name": "Scavenger Platform",
+      "x": 765,
+      "y": 405
+    },
+    {
+      "name": "Callville Bay",
+      "x": 790,
+      "y": 362
+    },
+    {
+      "name": "Bitter Springs Recreation Area",
+      "x": 803,
+      "y": 338
+    },
+    {
+      "name": "Bitter Springs",
+      "x": 810,
+      "y": 290
     }
   ]
 }
