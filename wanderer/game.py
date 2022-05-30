@@ -53,6 +53,14 @@ class MovementType:
     def __str__(self):
         return self.name
 
+    def colour_tuple(self) -> Tuple[int, int, int, int]:
+        colour_int = int(self.colour_code, 0)
+        r = (colour_int & int("0xff000000", 0)) >> 24
+        g = (colour_int & int("0x00ff0000", 0)) >> 16
+        b = (colour_int & int("0x0000ff00", 0)) >> 8
+        a = colour_int & int("0x000000ff", 0)
+        return r, g, b, a
+
 
 class Movement:
     def __init__(self, start: MapMarker, end: MapMarker, movement_type: MovementType):
@@ -232,7 +240,7 @@ class Game:
                     point.x,
                     point.y,
                 ),
-                fill=(255, 0, 0),
+                fill=movement.movement_type.colour_tuple(),
             )
 
             output_file = os.path.join(
