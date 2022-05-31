@@ -1,6 +1,7 @@
 import math
 import os
 import subprocess
+from typing import Tuple
 
 from PIL import Image
 from PIL.ImageDraw import ImageDraw
@@ -11,56 +12,45 @@ from wanderer.position2d import Position2D
 
 
 class GameRenderer:
-    def __init__(self, game: Game):
+    def __init__(self, game: Game, output_directory: str):
         self.game = game
         self.render_index = 0
+        self.frame_rate = 24
+        self.extension = "jpeg"
+        self.output_directory = output_directory
+        self.output_image_size: Tuple[int, int] = (512, 512)
+        self.map_transition_time = 0.5
 
-    def render_route(self, route_name: str, output_directory: str):
-        for file in os.listdir(output_directory):
+    def render_route(self, route_name: str):
+        for file in os.listdir(self.output_directory):
             if (
                 file.endswith(".jpeg")
                 or file.endswith(".webp")
                 or file.endswith(".mp4")
             ):
-                os.remove(os.path.join(output_directory, file))
-
-        frame_rate = 24
+                os.remove(os.path.join(self.output_directory, file))
 
         movements = self.game.parse_route_file(route_name)
-        extension = "jpeg"
         for movement in movements:
             print(movement)
             if movement.start.game_map != movement.end.game_map:
                 self.render_map_transition(
                     movement=movement,
-                    output_directory=output_directory,
-                    extension=extension,
-                    frame_rate=frame_rate,
                 )
                 continue
 
-            self.render_movement(
-                movement,
-                output_directory=output_directory,
-                frame_rate=frame_rate,
-                extension=extension,
-            )
+            self.render_movement(movement)
 
-        self.render_final_zoom_out(
-            last_movement=movements[-1],
-            output_directory=output_directory,
-            frame_rate=frame_rate,
-            extension=extension,
-        )
+        self.render_final_zoom_out(last_movement=movements[-1])
 
         subprocess.run(
             [
                 "ffmpeg",
                 "-framerate",
-                str(frame_rate),
+                str(self.frame_rate),
                 "-i",
-                os.path.join(output_directory, f"output_%06d.{extension}"),
-                os.path.join(output_directory, "final.mp4"),
+                os.path.join(self.output_directory, f"output_%06d.{self.extension}"),
+                os.path.join(self.output_directory, "final.mp4"),
                 "-y",
             ]
         )
@@ -68,21 +58,18 @@ class GameRenderer:
     def render_movement(
         self,
         movement: Movement,
-        output_directory: str,
-        frame_rate: int,
-        extension: str,
     ):
         movement_speed = (
             movement.movement_type.pixels_per_second
             * movement.start.game_map.speed_multiplier
-        ) / frame_rate
+        ) / self.frame_rate
         points = points_between(
             movement.start.position, movement.end.position, movement_speed
         )
         base_image = movement.start.game_map.image
 
         for point in points:
-            im = base_image.copy()
+            im: Image = base_image.copy()
             draw = ImageDraw(im)
             draw.line(
                 (
@@ -94,63 +81,50 @@ class GameRenderer:
                 fill=movement.movement_type.colour_tuple(),
             )
 
-            output_file = os.path.join(
-                output_directory,
-                self.get_output_filename(extension=extension),
-            )
             if point == points[-1]:
                 movement.start.game_map.image = im.copy()
+
             im = self.overlay_arrow(
                 im,
                 start=movement.start.position,
                 end=movement.end.position,
                 current=point,
             )
-            crop = im.crop(
-                movement.start.game_map.get_crop_at_position(point, (512, 512))
+            im: Image = im.crop(
+                movement.start.game_map.get_crop_at_position(
+                    point, self.output_image_size
+                )
             )
-            crop.save(output_file, extension)
+            im.save(self.get_next_frame_path())
 
-    def render_map_transition(
-        self,
-        movement: Movement,
-        output_directory: str,
-        frame_rate: int,
-        extension: str,
-    ):
+    def render_map_transition(self, movement: Movement):
         start_point, end_point = movement.start.position, movement.end.position
         base_image = movement.start.game_map.image
         overlay_image = movement.end.game_map.image
 
         base_crop = base_image.crop(
-            movement.start.game_map.get_crop_at_position(start_point, (512, 512))
+            movement.start.game_map.get_crop_at_position(
+                start_point, self.output_image_size
+            )
         )
         overlay_crop = overlay_image.crop(
-            movement.end.game_map.get_crop_at_position(end_point, (512, 512))
+            movement.end.game_map.get_crop_at_position(
+                end_point, self.output_image_size
+            )
         )
 
-        frame_count = int(frame_rate / 2)
+        frame_count = int(self.frame_rate * self.map_transition_time)
         for i in range(frame_count):
             final = Image.blend(base_crop, overlay_crop, i / frame_count)
-            output_file = os.path.join(
-                output_directory,
-                self.get_output_filename(extension=extension),
-            )
-            final.save(output_file, extension)
+            final.save(self.get_next_frame_path())
 
-    def render_final_zoom_out(
-        self,
-        last_movement: Movement,
-        output_directory: str,
-        frame_rate: int,
-        extension: str,
-    ):
+    def render_final_zoom_out(self, last_movement: Movement):
         game_map = last_movement.end.game_map
         movement_speed = (
             last_movement.movement_type.pixels_per_second
             * game_map.speed_multiplier
             * 0.5
-        ) / frame_rate
+        ) / self.frame_rate
 
         start = last_movement.end.position
         end = game_map.image_size / 2
@@ -159,18 +133,17 @@ class GameRenderer:
 
         for point in points:
             im = base_image.copy()
-            output_file = os.path.join(
-                output_directory,
-                self.get_output_filename(extension=extension),
-            )
-
             zoom_ratio = (start - point).magnitude() / (start - end).magnitude()
-            resize = lerp(Position2D(x=512, y=512), game_map.image_size, zoom_ratio)
+            resize = lerp(
+                Position2D(x=self.output_image_size[0], y=self.output_image_size[1]),
+                game_map.image_size,
+                zoom_ratio,
+            )
             crop = im.crop(
                 game_map.get_crop_at_position(point, (int(resize.x), int(resize.y)))
             )
-            crop = crop.resize((512, 512))
-            crop.save(output_file, extension)
+            crop = crop.resize(self.output_image_size)
+            crop.save(self.get_next_frame_path())
 
     def overlay_arrow(
         self, image: Image, start: Position2D, end: Position2D, current: Position2D
@@ -190,8 +163,8 @@ class GameRenderer:
             )
             return image
 
-    def get_output_filename(self, extension: str):
+    def get_next_frame_path(self) -> str:
         assert 0 <= self.render_index <= 10 ** 6
-        filename = f"output_{self.render_index:06}.{extension}"
+        filename = f"output_{self.render_index:06}.{self.extension}"
         self.render_index += 1
-        return filename
+        return os.path.join(self.output_directory, filename)
