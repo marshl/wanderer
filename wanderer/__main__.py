@@ -1,5 +1,5 @@
 from wanderer import parse_game
-from wanderer.game import GameRenderer
+from wanderer.renderer import GameRenderer
 
 if __name__ == "__main__":
     current_game = parse_game("new_vegas")
