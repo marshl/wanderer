@@ -352,7 +352,7 @@ class Game:
         angle_between = math.atan2(diff.x, diff.y)
         arrow_size = 24
 
-        with Image.open("arrow.png") as arrow_image:
+        with Image.open("working_images/arrow.png") as arrow_image:
             arrow_image = arrow_image.convert("RGBA")
             arrow_image = arrow_image.resize((arrow_size, arrow_size))
             arrow_image = arrow_image.rotate(math.degrees(angle_between))
