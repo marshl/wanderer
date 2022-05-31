@@ -1,7 +1,7 @@
 import math
 from typing import List, Any
 
-from wanderer import Position2D
+from wanderer.position2d import Position2D
 
 
 def lerp(start: Any, end: Any, delta: float) -> Any:

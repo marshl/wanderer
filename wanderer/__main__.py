@@ -1,4 +1,4 @@
-from wanderer import parse_game
+from wanderer.game import parse_game
 from wanderer.renderer import GameRenderer
 
 if __name__ == "__main__":

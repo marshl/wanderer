@@ -5,8 +5,7 @@ import subprocess
 from PIL import Image
 from PIL.ImageDraw import ImageDraw
 
-from wanderer import Game
-from wanderer.game import Movement
+from wanderer.game import Movement, Game
 from wanderer.utils import points_between, lerp
 from wanderer.position2d import Position2D
 
