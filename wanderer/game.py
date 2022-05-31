@@ -171,6 +171,10 @@ class Game:
         return [
             filename for filename in os.listdir(routes_dir) if filename.endswith(".txt")
         ]
+class GameRenderer:
+
+    def __init__(self, game: Game):
+        self.game = game
 
     def render_route(self, route_name: str, output_directory: str):
         for file in os.listdir(output_directory):
@@ -183,7 +187,7 @@ class Game:
 
         frame_rate = 24
 
-        movements = self.parse_route_file(route_name)
+        movements = self.game.parse_route_file(route_name)
         index = 0
         extension = "jpeg"
         for movement in movements:
