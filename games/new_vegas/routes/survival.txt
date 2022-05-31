@@ -375,6 +375,8 @@ Walk to Villa
 Walk to Medical District
 Walk to Villa
 Walk to Salida Del Sol
+WAlk to Salida Del Sol South
+Walk to Salida Del Sol Courtyard
 Walk to Salida Del Sol North
 Walk to Campanas Del Sol
 Walk to Salida Del Sol North
@@ -425,8 +427,8 @@ Walk to Fire Root Cavern
 Tunnel to Cottonwood Crater
 Walk to Smith Mesa Prospector Camp
 Walk to Blue Paradise Vacation Rentals
-Walk to Blue Paradise Mirelurk Nest
-Walk to Cottonwood Cove
+Swim to Blue Paradise Mirelurk Nest
+Swim to Cottonwood Cove
 Walk to Cottonwood Cove Overlook
 Walk to Sniper's Nest
 Walk to Ranger Station Echo
@@ -674,11 +676,6 @@ Teleport to The Sink
 Walk to Securitron De-construction Plant
 Teleport to The Sink
 Teleport to Mojave Drive-In
-Walk to Caesar's Legion Safehouse
-Walk to Camp Searchlight
-Walk to Cottonwood Cove
-Teleport to The Sink
-Teleport to Mojave Drive-in
 Walk to Primm
 Walk to Goodsprings
 Walk to Goodsprings Cemetery

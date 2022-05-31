@@ -7,8 +7,8 @@ from PIL import Image
 from PIL.ImageDraw import ImageDraw
 
 from wanderer.game import Movement, Game
-from wanderer.utils import points_between, lerp, slerp
 from wanderer.position2d import Position2D
+from wanderer.utils import points_between, slerp
 
 
 class GameRenderer:
@@ -16,10 +16,12 @@ class GameRenderer:
         self.game = game
         self.render_index = 0
         self.frame_rate = 24
-        self.extension = "jpeg"
+        self.extension = "webp"
         self.output_directory = output_directory
         self.output_image_size: Tuple[int, int] = (512, 512)
         self.map_transition_time = 0.5
+        self.arrow_size = 24
+        self.line_width = 3
 
     def render_route(self, route_name: str):
         for file in os.listdir(self.output_directory):
@@ -55,10 +57,7 @@ class GameRenderer:
             ]
         )
 
-    def render_movement(
-        self,
-        movement: Movement,
-    ):
+    def render_movement(self, movement: Movement):
         movement_speed = (
             movement.movement_type.pixels_per_second
             * movement.start.game_map.speed_multiplier
@@ -79,6 +78,7 @@ class GameRenderer:
                     point.y,
                 ),
                 fill=movement.movement_type.colour_tuple(),
+                width=self.line_width,
             )
 
             if point == points[-1]:
@@ -123,7 +123,7 @@ class GameRenderer:
         movement_speed = (
             last_movement.movement_type.pixels_per_second
             * game_map.speed_multiplier
-            * 0.5
+            * 0.25
         ) / self.frame_rate
 
         start = last_movement.end.position
@@ -150,15 +150,17 @@ class GameRenderer:
     ) -> Image:
         diff = end - start
         angle_between = math.atan2(diff.x, diff.y)
-        arrow_size = 24
 
         with Image.open("working_images/arrow.png") as arrow_image:
             arrow_image = arrow_image.convert("RGBA")
-            arrow_image = arrow_image.resize((arrow_size, arrow_size))
+            arrow_image = arrow_image.resize((self.arrow_size, self.arrow_size))
             arrow_image = arrow_image.rotate(math.degrees(angle_between))
             image.paste(
                 arrow_image,
-                (int(current.x - arrow_size / 2), int(current.y - arrow_size / 2)),
+                (
+                    int(current.x - self.arrow_size / 2),
+                    int(current.y - self.arrow_size / 2),
+                ),
                 arrow_image.convert("RGBA"),
             )
             return image
