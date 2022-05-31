@@ -7,7 +7,7 @@ from PIL import Image
 from PIL.ImageDraw import ImageDraw
 
 from wanderer.game import Movement, Game
-from wanderer.utils import points_between, lerp
+from wanderer.utils import points_between, lerp, slerp
 from wanderer.position2d import Position2D
 
 
@@ -134,7 +134,7 @@ class GameRenderer:
         for point in points:
             im = base_image.copy()
             zoom_ratio = (start - point).magnitude() / (start - end).magnitude()
-            resize = lerp(
+            resize = slerp(
                 Position2D(x=self.output_image_size[0], y=self.output_image_size[1]),
                 game_map.image_size,
                 zoom_ratio,

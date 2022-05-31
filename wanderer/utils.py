@@ -10,6 +10,12 @@ def lerp(start: Any, end: Any, delta: float) -> Any:
     return start + (end - start) * delta
 
 
+def slerp(start: Any, end: Any, delta: float) -> Any:
+    assert 0 <= delta <= 1.0
+
+    return start + (end - start) * math.sin(delta * math.pi / 2)
+
+
 def points_between(
     start: Position2D, end: Position2D, movement_speed: float
 ) -> List[Position2D]:
