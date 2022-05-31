@@ -152,6 +152,47 @@ class Game:
             filename for filename in os.listdir(routes_dir) if filename.endswith(".txt")
         ]
 
+    @classmethod
+    def load_from_dict(cls, game_config: dict, game_folder: str) -> "Game":
+        game = Game(
+            path=game_folder,
+            name=game_config["name"],
+            default_map=game_config["default_map"],
+        )
+
+        movement_types = [
+            MovementType(
+                name=movement_type["name"],
+                pixels_per_second=movement_type["pixels_per_second"],
+                colour_code=movement_type["colour"],
+            )
+            for movement_type in game_config["movement_types"]
+        ]
+        game.movement_types = movement_types
+
+        root_map_directory = os.path.join(game_folder, "maps")
+        if not os.path.exists(root_map_directory) or not os.path.isdir(root_map_directory):
+            raise ValueError(
+                f"Map directory {root_map_directory} could not be found or is not a directory."
+            )
+        child_map_directories = [
+            child_map_dir
+            for child_map_dir in [
+                os.path.join(root_map_directory, filename)
+                for filename in os.listdir(root_map_directory)
+            ]
+            if os.path.isdir(child_map_dir)
+        ]
+
+        if not child_map_directories:
+            raise ValueError(f"Map directory {root_map_directory} has no subfolders in it")
+
+        game.game_maps = [
+            parse_game_map(map_directory, game) for map_directory in child_map_directories
+        ]
+
+        return game
+
 
 class GameMap:
     def __init__(self, game: Game, name: str, image_file: str, speed_multiplier: float):
@@ -211,6 +252,19 @@ class GameMap:
             int(center_y + height / 2),
         )
 
+    @classmethod
+    def load_from_config(cls, map_config: dict, map_directory: str, game: Game) -> "GameMap":
+        game_map = GameMap(
+            game=game,
+            name=map_config["name"],
+            image_file=os.path.join(map_directory, map_config["image_file"]),
+            speed_multiplier=map_config["speed_multiplier"],
+        )
+        for location_config in map_config["locations"]:
+            location = parse_location(location_config=location_config, game_map=game_map)
+            game_map.add_location(location)
+        return game_map
+
 
 def get_games_folder():
     return os.path.abspath(GAMES_DIRECTORY)
@@ -244,45 +298,7 @@ def parse_game(game_name: str) -> Game:
     config_filename = os.path.join(game_folder, "config.json")
     with open(config_filename, "r", encoding="utf8") as file:
         game_config = json.load(file)
-    game = Game(
-        path=game_folder,
-        name=game_config["name"],
-        default_map=game_config["default_map"],
-    )
-
-    movement_types = [
-        MovementType(
-            name=movement_type["name"],
-            pixels_per_second=movement_type["pixels_per_second"],
-            colour_code=movement_type["colour"],
-        )
-        for movement_type in game_config["movement_types"]
-    ]
-    game.movement_types = movement_types
-
-    root_map_directory = os.path.join(game_folder, "maps")
-    if not os.path.exists(root_map_directory) or not os.path.isdir(root_map_directory):
-        raise ValueError(
-            f"Map directory {root_map_directory} could not be found or is not a directory."
-        )
-    child_map_directories = [
-        child_map_dir
-        for child_map_dir in [
-            os.path.join(root_map_directory, filename)
-            for filename in os.listdir(root_map_directory)
-        ]
-        if os.path.isdir(child_map_dir)
-    ]
-
-    if not child_map_directories:
-        raise ValueError(f"Map directory {root_map_directory} has no subfolders in it")
-
-    # for map_directory in child_map_directories:
-    game.game_maps = [
-        parse_game_map(map_directory, game) for map_directory in child_map_directories
-    ]
-
-    return game
+    return Game.load_from_dict(game_config, game_folder=game_folder)
 
 
 def parse_location(location_config: dict, game_map: GameMap) -> MapMarker:
@@ -302,13 +318,4 @@ def parse_game_map(map_directory: str, game: Game):
     with open(config_filepath, "r", encoding="utf8") as file:
         map_config = json.load(file)
 
-    game_map = GameMap(
-        game=game,
-        name=map_config["name"],
-        image_file=os.path.join(map_directory, map_config["image_file"]),
-        speed_multiplier=map_config["speed_multiplier"],
-    )
-    for location_config in map_config["locations"]:
-        location = parse_location(location_config=location_config, game_map=game_map)
-        game_map.add_location(location)
-    return game_map
+    return GameMap.load_from_config(map_config, map_directory=map_directory, game=game)

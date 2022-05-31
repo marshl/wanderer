@@ -11,9 +11,9 @@ from wanderer.position2d import Position2D
 
 
 class GameRenderer:
-
     def __init__(self, game: Game):
         self.game = game
+        self.render_index = 0
 
     def render_route(self, route_name: str, output_directory: str):
         for file in os.listdir(output_directory):
@@ -27,31 +27,27 @@ class GameRenderer:
         frame_rate = 24
 
         movements = self.game.parse_route_file(route_name)
-        index = 0
         extension = "jpeg"
         for movement in movements:
+            print(movement)
             if movement.start.game_map != movement.end.game_map:
-                index = self.render_map_transition(
+                self.render_map_transition(
                     movement=movement,
-                    current_index=index,
                     output_directory=output_directory,
                     extension=extension,
                     frame_rate=frame_rate,
                 )
-                # TODO: Some kind of map transition
                 continue
-            print(movement)
-            index = self.render_movement(
+
+            self.render_movement(
                 movement,
-                current_index=index,
                 output_directory=output_directory,
                 frame_rate=frame_rate,
                 extension=extension,
             )
 
-        index = self.render_final_zoom_out(
+        self.render_final_zoom_out(
             last_movement=movements[-1],
-            current_index=index,
             output_directory=output_directory,
             frame_rate=frame_rate,
             extension=extension,
@@ -72,11 +68,10 @@ class GameRenderer:
     def render_movement(
         self,
         movement: Movement,
-        current_index: int,
         output_directory: str,
         frame_rate: int,
         extension: str,
-    ) -> int:
+    ):
         movement_speed = (
             movement.movement_type.pixels_per_second
             * movement.start.game_map.speed_multiplier
@@ -101,9 +96,8 @@ class GameRenderer:
 
             output_file = os.path.join(
                 output_directory,
-                self.get_output_filename(current_index, extension=extension),
+                self.get_output_filename(extension=extension),
             )
-            current_index += 1
             if point == points[-1]:
                 movement.start.game_map.image = im.copy()
             im = self.overlay_arrow(
@@ -117,16 +111,13 @@ class GameRenderer:
             )
             crop.save(output_file, extension)
 
-        return current_index
-
     def render_map_transition(
         self,
         movement: Movement,
-        current_index: int,
         output_directory: str,
         frame_rate: int,
         extension: str,
-    ) -> int:
+    ):
         start_point, end_point = movement.start.position, movement.end.position
         base_image = movement.start.game_map.image
         overlay_image = movement.end.game_map.image
@@ -143,21 +134,17 @@ class GameRenderer:
             final = Image.blend(base_crop, overlay_crop, i / frame_count)
             output_file = os.path.join(
                 output_directory,
-                self.get_output_filename(current_index, extension=extension),
+                self.get_output_filename(extension=extension),
             )
-            current_index += 1
             final.save(output_file, extension)
-
-        return current_index
 
     def render_final_zoom_out(
         self,
         last_movement: Movement,
-        current_index: int,
         output_directory: str,
         frame_rate: int,
         extension: str,
-    ) -> int:
+    ):
         game_map = last_movement.end.game_map
         movement_speed = (
             last_movement.movement_type.pixels_per_second
@@ -174,9 +161,8 @@ class GameRenderer:
             im = base_image.copy()
             output_file = os.path.join(
                 output_directory,
-                self.get_output_filename(current_index, extension=extension),
+                self.get_output_filename(extension=extension),
             )
-            current_index += 1
 
             zoom_ratio = (start - point).magnitude() / (start - end).magnitude()
             resize = lerp(Position2D(x=512, y=512), game_map.image_size, zoom_ratio)
@@ -185,8 +171,6 @@ class GameRenderer:
             )
             crop = crop.resize((512, 512))
             crop.save(output_file, extension)
-
-        return current_index
 
     def overlay_arrow(
         self, image: Image, start: Position2D, end: Position2D, current: Position2D
@@ -206,6 +190,8 @@ class GameRenderer:
             )
             return image
 
-    def get_output_filename(self, index: int, extension: str):
-        assert 0 <= index <= 100000
-        return f"output_{index:06}.{extension}"
+    def get_output_filename(self, extension: str):
+        assert 0 <= self.render_index <= 10 ** 6
+        filename = f"output_{self.render_index:06}.{extension}"
+        self.render_index += 1
+        return filename
