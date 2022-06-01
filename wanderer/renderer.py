@@ -16,7 +16,7 @@ class GameRenderer:
         self.game = game
         self.render_index = 0
         self.frame_rate = 24
-        self.extension = "webp"
+        self.extension = "jpeg"
         self.output_directory = output_directory
         self.output_image_size: Tuple[int, int] = (512, 512)
         self.map_transition_time = 0.5
@@ -35,7 +35,10 @@ class GameRenderer:
         movements = self.game.parse_route_file(route_name)
         for movement in movements:
             print(movement)
-            if movement.start.game_map != movement.end.game_map:
+            if (
+                movement.start.game_map != movement.end.game_map
+                or movement.movement_type.pixels_per_second == 0
+            ):
                 self.render_map_transition(
                     movement=movement,
                 )

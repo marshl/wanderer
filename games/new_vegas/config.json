@@ -9,7 +9,7 @@
     },
     {
       "name": "boat",
-      "pixels_per_second": 500,
+      "pixels_per_second": 350,
       "colour": "0x0000ffff"
     },
     {
@@ -29,7 +29,7 @@
     },
     {
       "name": "teleport",
-      "pixels_per_second": 1000,
+      "pixels_per_second": 0,
       "colour": "0xffffffff"
     },
     {
