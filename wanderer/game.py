@@ -1,3 +1,6 @@
+"""
+All game related classes
+"""
 import json
 import os
 import re
@@ -9,11 +12,14 @@ from slugify import slugify
 
 from wanderer.position2d import Position2D
 
-
 GAMES_DIRECTORY = "games"
 
 
-class MapMarker:
+class Location:
+    """
+    A location on a map that the player travelled to
+    """
+
     def __init__(self, name: str, position: Position2D, game_map: "GameMap"):
         self.name = name
         self.position = position
@@ -22,10 +28,22 @@ class MapMarker:
     def __str__(self):
         return self.name
 
+    @staticmethod
+    def load_from_config(location_config: dict, game_map: "GameMap") -> "Location":
+        return Location(
+            name=location_config["name"],
+            game_map=game_map,
+            position=Position2D(x=location_config["x"], y=location_config["y"]),
+        )
+
 
 class MovementType:
+    """
+    A kind of movement that a game supports (e.g. walk, swim, etc.)
+    """
+
     def __init__(self, name: str, pixels_per_second: float, colour_code: str):
-        assert pixels_per_second > 0
+        assert pixels_per_second >= 0
         self.name = name
         self.pixels_per_second = pixels_per_second
         self.colour_code = colour_code
@@ -34,6 +52,10 @@ class MovementType:
         return self.name
 
     def colour_tuple(self) -> Tuple[int, int, int, int]:
+        """
+        Converts the hex based colour code into a 4-part tuple that Pillow can use
+        :return: The colour as an RGBA 0-255 tuple
+        """
         colour_int = int(self.colour_code, 0)
         r = (colour_int & int("0xff000000", 0)) >> 24
         g = (colour_int & int("0x00ff0000", 0)) >> 16
@@ -43,7 +65,11 @@ class MovementType:
 
 
 class Movement:
-    def __init__(self, start: MapMarker, end: MapMarker, movement_type: MovementType):
+    """
+    A player's movement from one location to another
+    """
+
+    def __init__(self, start: Location, end: Location, movement_type: MovementType):
         self.start = start
         self.end = end
         self.movement_type = movement_type
@@ -53,6 +79,10 @@ class Movement:
 
 
 class Game:
+    """
+    A game (e.g. Fallout New Vegas, Fallout 3, Skyrim etc.)
+    """
+
     def __init__(self, path: str, name: str, default_map: str):
         self.path = path
         self.name = name
@@ -63,7 +93,13 @@ class Game:
     def __str__(self):
         return self.name
 
-    def find_location_by_name(self, location_name: str) -> "MapMarker":
+    def find_location_by_name(self, location_name: str) -> "Location":
+        """
+        Find locations within this games maps with the given name. This assumes that location
+        names are unique across all maps
+        :param location_name:
+        :return:
+        """
         locations = []
         for game_map in self.game_maps:
             locations += game_map.find_location_by_name(location_name, fuzzy=False)
@@ -121,6 +157,11 @@ class Game:
         return movements
 
     def get_movement_type(self, movement_type_name: str) -> MovementType:
+        """
+        Gets the movement type of the given name
+        :param movement_type_name: The movement type to get
+        :return: The movement type of the given name
+        """
         matching_types = [
             movement_type
             for movement_type in self.movement_types
@@ -136,6 +177,11 @@ class Game:
         return matching_types[0]
 
     def parse_route_str(self, route_str: str) -> Tuple[str, str]:
+        """
+        Parses a route string in the format "<movement> to <location>"
+        :param route_str: The string to parse
+        :return: A tuple containing the movement type name and location name
+        """
         match = re.match("^(?P<movement>.+?) to (?P<location>.+?)$", route_str)
         if not match:
             raise ValueError(f'Could not match line to route: "{route_str}"')
@@ -171,7 +217,9 @@ class Game:
         game.movement_types = movement_types
 
         root_map_directory = os.path.join(game_folder, "maps")
-        if not os.path.exists(root_map_directory) or not os.path.isdir(root_map_directory):
+        if not os.path.exists(root_map_directory) or not os.path.isdir(
+            root_map_directory
+        ):
             raise ValueError(
                 f"Map directory {root_map_directory} could not be found or is not a directory."
             )
@@ -185,30 +233,49 @@ class Game:
         ]
 
         if not child_map_directories:
-            raise ValueError(f"Map directory {root_map_directory} has no subfolders in it")
+            raise ValueError(
+                f"Map directory {root_map_directory} has no subfolders in it"
+            )
 
         game.game_maps = [
-            parse_game_map(map_directory, game) for map_directory in child_map_directories
+            parse_game_map(map_directory, game)
+            for map_directory in child_map_directories
         ]
 
         return game
 
 
 class GameMap:
-    def __init__(self, game: Game, name: str, image_file: str, speed_multiplier: float):
+    """
+    A game's map. For example "Mojave", "Big MT", "Point Lookout" etc.
+    """
+
+    def __init__(
+        self,
+        game: Game,
+        name: str,
+        image_file: str,
+        directory_path: str,
+        speed_multiplier: float,
+    ):
         assert speed_multiplier > 0
         self.game: Game = game
         self.name: str = name
-        self.image_file: str = image_file
+        self.directory_path: str = directory_path
         self.speed_multiplier: float = speed_multiplier
-        self.location_map: Dict[str, MapMarker] = {}
-        self.image = Image.open(self.image_file)
+        self.location_map: Dict[str, Location] = {}
+        self.imageFile = image_file
+        self.image = Image.open(self.get_image_path())
         self.image_size = Position2D(*self.image.size)
 
     def __str__(self):
         return self.name
 
-    def add_location(self, location: "MapMarker") -> None:
+    def add_location(self, location: "Location") -> None:
+        """
+        Adds a location to this map, ensuring that there aren't any duplicates
+        :param location: The location to add
+        """
         name_slug = slugify(location.name)
         if name_slug in self.location_map:
             raise ValueError(
@@ -218,7 +285,13 @@ class GameMap:
 
     def find_location_by_name(
         self, location_name: str, fuzzy: bool = False
-    ) -> List["MapMarker"]:
+    ) -> List["Location"]:
+        """
+        Tries to find any locations on this map with the given name
+        :param location_name: The location name to try and find
+        :param fuzzy: If true, then a fuzzy search will be performed
+        :return: A list of locations that match the name (0 or 1 if not fuzzy, otherwise any number)
+        """
         if not fuzzy:
             location = self.location_map.get(slugify(location_name))
             return [location] if location else []
@@ -231,7 +304,11 @@ class GameMap:
         return locations
 
     def get_image_path(self) -> str:
-        return os.path.join(self.game.path, self.image_file)
+        """
+        Gets the path of this maps image
+        :return: The image path
+        """
+        return os.path.join(self.directory_path, self.imageFile)
 
     def get_crop_at_position(
         self, position: Position2D, crop_size: Tuple[int, int]
@@ -253,15 +330,20 @@ class GameMap:
         )
 
     @classmethod
-    def load_from_config(cls, map_config: dict, map_directory: str, game: Game) -> "GameMap":
+    def load_from_config(
+        cls, map_config: dict, directory_path: str, game: Game
+    ) -> "GameMap":
         game_map = GameMap(
             game=game,
             name=map_config["name"],
-            image_file=os.path.join(map_directory, map_config["image_file"]),
-            speed_multiplier=map_config["speed_multiplier"],
+            image_file=map_config["imageFile"],
+            directory_path=directory_path,
+            speed_multiplier=map_config["speedMultiplier"],
         )
         for location_config in map_config["locations"]:
-            location = parse_location(location_config=location_config, game_map=game_map)
+            location = Location.load_from_config(
+                location_config=location_config, game_map=game_map
+            )
             game_map.add_location(location)
         return game_map
 
@@ -301,15 +383,7 @@ def parse_game(game_name: str) -> Game:
     return Game.load_from_dict(game_config, game_folder=game_folder)
 
 
-def parse_location(location_config: dict, game_map: GameMap) -> MapMarker:
-    return MapMarker(
-        name=location_config["name"],
-        game_map=game_map,
-        position=Position2D(x=location_config["x"], y=location_config["y"]),
-    )
-
-
-def parse_game_map(map_directory: str, game: Game):
+def parse_game_map(map_directory: str, game: Game) -> GameMap:
     config_filename = "config.json"
     config_filepath = os.path.join(map_directory, config_filename)
     if not os.path.exists(config_filepath):
@@ -318,4 +392,4 @@ def parse_game_map(map_directory: str, game: Game):
     with open(config_filepath, "r", encoding="utf8") as file:
         map_config = json.load(file)
 
-    return GameMap.load_from_config(map_config, map_directory=map_directory, game=game)
+    return GameMap.load_from_config(map_config, game=game, directory_path=map_directory)

@@ -1,7 +1,7 @@
 {
   "name": "Big Empty",
-  "image_file": "Big_Empty.webp",
-  "speed_multiplier": 1.0,
+  "imageFile": "Big_Empty.webp",
+  "speedMultiplier": 1.0,
   "locations": [
     {
       "name": "Big MT east tunnel",

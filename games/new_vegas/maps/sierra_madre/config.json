@@ -1,7 +1,7 @@
 {
   "name": "Sierra Madre",
-  "image_file": "Sierra_Madre_Map.png",
-  "speed_multiplier": 1.0,
+  "imageFile": "Sierra_Madre_Map.png",
+  "speedMultiplier": 1.0,
   "locations": [
     {
       "name": "Medical district",

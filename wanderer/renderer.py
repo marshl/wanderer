@@ -134,15 +134,15 @@ class GameRenderer:
         points = points_between(start, end, movement_speed)
         base_image = game_map.image
 
+        image = base_image.copy()
         for point in points:
-            im = base_image.copy()
             zoom_ratio = (start - point).magnitude() / (start - end).magnitude()
             resize = slerp(
                 Position2D(x=self.output_image_size[0], y=self.output_image_size[1]),
                 game_map.image_size,
                 zoom_ratio,
             )
-            crop = im.crop(
+            crop = image.crop(
                 game_map.get_crop_at_position(point, (int(resize.x), int(resize.y)))
             )
             crop = crop.resize(self.output_image_size)
