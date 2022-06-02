@@ -30,6 +30,12 @@ class Location:
 
     @staticmethod
     def load_from_config(location_config: dict, game_map: "GameMap") -> "Location":
+        """
+        Creates a Location object from a dict
+        :param location_config: The dict to load from
+        :param game_map: The GameMap this Location belongs to
+        :return: The newly created Location
+        """
         return Location(
             name=location_config["name"],
             game_map=game_map,
@@ -50,18 +56,6 @@ class MovementType:
 
     def __str__(self):
         return self.name
-
-    def colour_tuple(self) -> Tuple[int, int, int, int]:
-        """
-        Converts the hex based colour code into a 4-part tuple that Pillow can use
-        :return: The colour as an RGBA 0-255 tuple
-        """
-        colour_int = int(self.colour_code, 0)
-        r = (colour_int & int("0xff000000", 0)) >> 24
-        g = (colour_int & int("0x00ff0000", 0)) >> 16
-        b = (colour_int & int("0x0000ff00", 0)) >> 8
-        a = colour_int & int("0x000000ff", 0)
-        return r, g, b, a
 
 
 class Movement:

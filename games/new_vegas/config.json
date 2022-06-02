@@ -5,37 +5,37 @@
     {
       "name": "walk",
       "pixels_per_second": 250,
-      "colour": "0xcc1700c2"
+      "colour": "#cc1700c2"
     },
     {
       "name": "boat",
       "pixels_per_second": 350,
-      "colour": "0x0000ffff"
+      "colour": "#0000ffff"
     },
     {
       "name": "swim",
       "pixels_per_second": 200,
-      "colour": "0x0000ffff"
+      "colour": "#0000ffff"
     },
     {
       "name": "sewer",
       "pixels_per_second": 300,
-      "colour": "0x00ff00ff"
+      "colour": "#00ff00ff"
     },
     {
       "name": "tunnel",
       "pixels_per_second": 400,
-      "colour": "0x00ff00ff"
+      "colour": "#00ff00ff"
     },
     {
       "name": "teleport",
       "pixels_per_second": 0,
-      "colour": "0xffffffff"
+      "colour": "#ffffffff"
     },
     {
       "name": "monorail",
       "pixels_per_second": 400,
-      "colour": "0x00ff00ff"
+      "colour": "#00ff00ff"
     }
   ]
 }

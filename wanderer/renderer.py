@@ -80,7 +80,7 @@ class GameRenderer:
                     point.x,
                     point.y,
                 ),
-                fill=movement.movement_type.colour_tuple(),
+                fill=movement.movement_type.colour_code,
                 width=self.line_width,
             )
 
