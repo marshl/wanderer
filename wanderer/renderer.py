@@ -3,8 +3,8 @@ import os
 import subprocess
 from typing import Tuple
 
-from PIL import Image
-from PIL.ImageDraw import ImageDraw
+from PIL import Image, ImageFont
+from PIL.ImageDraw import ImageDraw, Draw
 
 from wanderer.game import Movement, Game
 from wanderer.position2d import Position2D
@@ -16,12 +16,20 @@ class GameRenderer:
         self.game = game
         self.render_index = 0
         self.frame_rate = 24
-        self.extension = "jpeg"
+        self.extension = "webp"
         self.output_directory = output_directory
         self.output_image_size: Tuple[int, int] = (512, 512)
         self.map_transition_time = 0.5
         self.arrow_size = 24
         self.line_width = 3
+
+        self.fnt = ImageFont.truetype(
+            os.path.join("wanderer", "static", "monofonto rg.otf"), 18
+        )
+
+        self.arrow_image = Image.open("working_images/arrow.png")
+        self.arrow_image = self.arrow_image.convert("RGBA")
+        self.arrow_image = self.arrow_image.resize((self.arrow_size, self.arrow_size))
 
     def render_route(self, route_name: str):
         for file in os.listdir(self.output_directory):
@@ -98,6 +106,7 @@ class GameRenderer:
                     point, self.output_image_size
                 )
             )
+            im = self.overlay_text(im, movement)
             im.save(self.get_next_frame_path())
 
     def render_map_transition(self, movement: Movement):
@@ -154,19 +163,26 @@ class GameRenderer:
         diff = end - start
         angle_between = math.atan2(diff.x, diff.y)
 
-        with Image.open("working_images/arrow.png") as arrow_image:
-            arrow_image = arrow_image.convert("RGBA")
-            arrow_image = arrow_image.resize((self.arrow_size, self.arrow_size))
-            arrow_image = arrow_image.rotate(math.degrees(angle_between))
-            image.paste(
-                arrow_image,
-                (
-                    int(current.x - self.arrow_size / 2),
-                    int(current.y - self.arrow_size / 2),
-                ),
-                arrow_image.convert("RGBA"),
-            )
-            return image
+        arrow_copy = self.arrow_image.rotate(math.degrees(angle_between))
+        image.paste(
+            arrow_copy,
+            (
+                int(current.x - self.arrow_size / 2),
+                int(current.y - self.arrow_size / 2),
+            ),
+            arrow_copy.convert("RGBA"),
+        )
+        return image
+
+    def overlay_text(self, image: Image, movement: Movement) -> Image:
+        d = Draw(image)
+        d.text(
+            (10, self.output_image_size[1] - 30),
+            movement.short_str(),
+            font=self.fnt,
+            fill="#FFC785",
+        )
+        return image
 
     def get_next_frame_path(self) -> str:
         assert 0 <= self.render_index <= 10 ** 6

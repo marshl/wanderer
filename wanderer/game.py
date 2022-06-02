@@ -71,6 +71,9 @@ class Movement:
     def __str__(self):
         return f"{self.movement_type} from {self.start} to {self.end}"
 
+    def short_str(self) -> str:
+        return f"{str(self.movement_type).capitalize()} to {self.end}"
+
 
 class Game:
     """
